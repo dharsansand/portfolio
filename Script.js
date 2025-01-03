@@ -40,10 +40,10 @@ $(document).ready(function () {
   
     var typed = new Typed(".typing", {
       strings: [
-        "Fullstack Developer",
         "Software Developer",
-        "UI/UX Designing",
-        "Database",
+        "Web Design",
+        "Mobile Development"
+     
        
       ],
       typeSpeed: 100,
@@ -53,10 +53,10 @@ $(document).ready(function () {
   
     var typed = new Typed(".typing-2", {
       strings: [
-        "Fullstack Developer",
+      
         "Software Developer",
-        "UI/UX Designing",
-        "Database"
+        "Web Design",
+        "Mobile Development"
       ],
       typeSpeed: 100,
       backSpeed: 60,
@@ -128,10 +128,9 @@ $(document).ready(function () {
 
   var typed = new Typed(".typing", {
     strings: [
-      "Fullstack Developer",
-        "Software Developer",
-        "UI/UX Designing",
-        "Database"
+      "Software Developer",
+        "Web Design",
+        "Mobile Development"
     ],
     typeSpeed: 100,
     backSpeed: 60,
@@ -140,10 +139,9 @@ $(document).ready(function () {
 
   var typed = new Typed(".typing-2", {
     strings: [
-      "Fullstack Developer",
       "Software Developer",
-      "UI/UX Designing",
-      "Database"
+      "Web Design",
+      "Mobile Development"
     ],
     typeSpeed: 100,
     backSpeed: 60,

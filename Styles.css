@@ -490,19 +490,19 @@
   }
   
   .skills-content .right .css::before {
-    width: 60%;
+    width: 80%;
   }
   
   .skills-content .right .js::before {
-    width: 40%;
+    width: 85%;
   }
   
   .skills-content .right .bootstraps::before {
-    width: 60%;
+    width: 70%;
   }
   
   .skills-content .right .django::before {
-    width: 70%;
+    width: 80%;
   }
   
   /*  Projects  */
