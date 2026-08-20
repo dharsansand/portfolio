@@ -1,0 +1,69 @@
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 50;
+}
+
+.logo-section {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #ff7b00;
+}
+
+.pill-nav-container {
+  display: flex;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 5px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.nav-item {
+  position: relative;
+  padding: 10px 25px;
+  border: none;
+  background: none;
+  color: #94a3b8;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.active-text {
+  color: #000;
+}
+
+.pill-background {
+  position: absolute;
+  inset: 0;
+  background: #ff7b00;
+  border-radius: 100px;
+  z-index: 0;
+}
+
+.nav-label {
+  position: relative;
+  z-index: 10;
+}
+
+.header-cta {
+  background: #ff7b00;
+  color: #000;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.header-cta:hover {
+  transform: scale(1.05);
+}

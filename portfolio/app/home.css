@@ -1,0 +1,189 @@
+/* home.css */
+:root {
+  --bg-deep: #0a1931;       
+  --accent-light: #b3cfe5;  
+  --accent-mid: #4a7fa7;    
+  --text-white: #ffffff;    
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background-color: var(--bg-deep) !important;
+  color: var(--text-white);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+.home-container {
+  position: relative;
+  z-index: 10;
+  padding: 0 8%;
+  min-height: 100vh;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  min-height: 85vh;
+  gap: 60px;
+}
+
+/* Typography */
+.user-name {
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  font-weight: 900;
+  color: #ffffff;
+  margin: 10px 0;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.intro-text {
+  color: var(--accent-light);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Social Row Hover Style */
+.social-row {
+  display: flex;
+  gap: 15px;
+  margin: 35px 0;
+}
+
+.icon-circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(179, 207, 229, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-light);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-circle:hover {
+  background: var(--accent-mid);
+  color: white;
+  transform: translateY(-5px) rotate(8deg);
+  border-color: var(--accent-light);
+  box-shadow: 0 10px 20px rgba(74, 127, 167, 0.3);
+}
+
+/* Action Buttons */
+.action-row {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.btn-main {
+  background: var(--accent-mid);
+  color: white;
+  border: none;
+  padding: 15px 35px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the secondary button (Download CV) */
+.btn-outline {
+  background: transparent;
+  color: var(--accent-light);
+  border: 1px solid var(--accent-mid);
+  padding: 15px 35px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.stats-container {
+  display: flex;
+  gap: 60px;
+  margin-top: 50px;
+}
+.stat-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-num {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #ffffff; /* Bright White */
+  line-height: 1;
+}
+
+.stat-txt {
+  font-size: 0.9rem;
+  color: var(--accent-light); /* Soft Blue */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+.btn-main:hover {
+background: var(--accent-mid);
+  color: white;
+  transform: translateY(-5px) rotate(8deg);
+  border-color: var(--accent-light);
+  box-shadow: 0 10px 20px rgba(74, 127, 167, 0.3);
+}
+
+.btn-outline:hover {
+background: var(--accent-mid);
+  color: white;
+  transform: translateY(-5px) rotate(8deg);
+  border-color: var(--accent-light);
+  box-shadow: 0 10px 20px rgba(74, 127, 167, 0.3);
+}
+
+/* JERRY IMAGE FIX (PRO BLENDING) */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.main-img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 40px;
+  /* MAGIC: Removes white box background */
+  mix-blend-mode: lighten; 
+  filter: contrast(1.1) brightness(1.05);
+  transition: transform 0.6s ease;
+}
+
+.hero-visual:hover .main-img {
+  transform: scale(1.02) rotate(2deg);
+}
+
+/* Glow behind Jerry */
+.hero-visual::after {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(74, 127, 167, 0.2) 0%, transparent 70%);
+  z-index: -1;
+  top: 10%;
+}
+
+@media (max-width: 968px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero-visual { order: 1; }
+  .hero-content { order: 2; }
+  .social-row, .action-row { justify-content: center; }
+}
