@@ -1,69 +1,97 @@
-.header-wrapper {
+/* header.css */
+
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 3rem;
-  max-width: 1400px;
-  margin: 0 auto;
+  padding: 25px 0;
   position: relative;
-  z-index: 50;
+  z-index: 100;
 }
 
-.logo-section {
-  font-size: 1.5rem;
+.logo {
+  font-size: 1.6rem;
   font-weight: 900;
-  color: #ff7b00;
+  color: #fff;
+  letter-spacing: -1.5px;
 }
 
-.pill-nav-container {
+.nav-bar {
   display: flex;
   background: rgba(255, 255, 255, 0.03);
-  padding: 5px;
+  padding: 6px;
   border-radius: 100px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
 }
 
-.nav-item {
+.nav-button {
   position: relative;
-  padding: 10px 25px;
   border: none;
   background: none;
-  color: #94a3b8;
+  padding: 10px 24px;
   cursor: pointer;
-  font-weight: 500;
+  color: #94a3b8;
+  transition: 0.3s;
+  font-weight: 600;
   font-size: 0.9rem;
-  transition: color 0.3s ease;
+  outline: none;
 }
 
-.active-text {
-  color: #000;
+.nav-button.active {
+  color: #fff;
 }
 
-.pill-background {
+.nav-pill {
   position: absolute;
   inset: 0;
-  background: #ff7b00;
+  background: var(--accent-mid); /* Uses your theme color */
   border-radius: 100px;
-  z-index: 0;
+  z-index: -1;
 }
 
-.nav-label {
-  position: relative;
-  z-index: 10;
+/* Header Button */
+.header-hire-btn {
+  padding: 10px 25px;
+  font-size: 0.85rem;
+  /* btn-main styles already in your home.css */
 }
 
-.header-cta {
-  background: #ff7b00;
-  color: #000;
-  border: none;
-  padding: 12px 28px;
-  border-radius: 12px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 0.2s;
+/* RESPONSIVE FIX (Important!) */
+@media (max-width: 968px) {
+  .header {
+    padding: 20px 0;
+  }
+  
+  /* Hide Nav on mobile if you want to implement a hamburger later, 
+     OR shrink the items to fit */
+  .nav-bar {
+    padding: 4px;
+  }
+  
+  .nav-button {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+
+  .header-hire-btn {
+    display: none; /* Hide button on mobile to save space */
+  }
 }
 
-.header-cta:hover {
-  transform: scale(1.05);
+@media (max-width: 600px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+  
+  .nav-bar {
+    /* Moves nav to the bottom for mobile "App-like" feel */
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    justify-content: center;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+  }
 }
