@@ -1,0 +1,223 @@
+/* Container & Section */
+.skills-section {
+    position: relative;
+    background-color: #020617;
+    padding: 100px 24px;
+    overflow: hidden;
+    color: #94a3b8;
+}
+
+.skills-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+/* Background Pattern */
+.skills-dot-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    pointer-events: none;
+    background-image: radial-gradient(#ffffff 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+/* Header Styling */
+.skills-header {
+    margin-bottom: 60px;
+}
+
+.expertise-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.label-line {
+    width: 40px;
+    height: 2px;
+    background-color: #3b82f6;
+}
+
+.label-text {
+    color: #3b82f6;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.skills-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.04em;
+}
+
+.title-gradient {
+    background: linear-gradient(90deg, #3b82f6, #818cf8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile default */
+    gap: 24px;
+}
+
+.skill-card {
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(8px);
+    padding: 32px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.skill-card:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateY(-8px);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.card-icon {
+    font-size: 28px;
+}
+
+.bg-code-icon {
+    font-size: 40px;
+    opacity: 0.05;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 24px;
+}
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #94a3b8;
+    transition: color 0.2s;
+}
+
+.skill-card:hover .skill-item {
+    color: #e2e8f0;
+}
+
+.check-icon {
+    color: #3b82f6;
+    opacity: 0.5;
+    font-size: 14px;
+}
+
+/* Icon Colors */
+.blue-icon { color: #60a5fa; }
+.emerald-icon { color: #34d399; }
+.amber-icon { color: #fbbf24; }
+.purple-icon { color: #a78bfa; }
+
+/* Domain Banner */
+.domain-banner {
+    margin-top: 60px;
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), transparent);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 24px;
+}
+
+.banner-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.banner-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.banner-icon-box {
+    background: rgba(59, 130, 246, 0.1);
+    color: #60a5fa;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+.banner-small-text {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 800;
+    color: #3b82f6;
+    margin: 0;
+}
+
+.banner-main-text {
+    color: white;
+    font-weight: 600;
+    margin: 0;
+}
+
+.banner-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.banner-tags span {
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 640px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .banner-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

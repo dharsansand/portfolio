@@ -1,0 +1,253 @@
+/* Variables for consistency */
+:root {
+  --bg-dark: #020617;
+  --text-main: #94a3b8;
+  --text-bright: #ffffff;
+  --accent-blue: #3b82f6;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+.about-section {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+  padding: 80px 24px;
+  overflow: hidden;
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bg-glow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+  filter: blur(80px);
+  z-index: 0;
+}
+
+/* Header Styling */
+.about-header {
+  margin-bottom: 60px;
+}
+
+.discovery-tag {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.discovery-tag .line {
+  width: 40px;
+  height: 1px;
+  background: var(--accent-blue);
+}
+
+.tag-text {
+  color: var(--accent-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.main-title {
+  font-size: clamp(2.5rem, 8vw, 4.5rem); /* Fluid typography for mobile */
+  font-weight: 800;
+  color: var(--text-bright);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #60a5fa, #818cf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Grid Layout */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Image Styling */
+.image-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: #0f172a;
+}
+
+.profile-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(100%);
+  transition: 0.5s ease;
+}
+
+.image-wrapper:hover .profile-img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.role-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  padding: 16px;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+}
+
+.badge-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  font-weight: 700;
+  margin: 0;
+}
+
+.badge-value {
+  color: white;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Text Column Styling */
+.lead-text {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin-bottom: 24px;
+}
+
+.text-highlight {
+  color: var(--accent-blue);
+}
+
+.description-text {
+  margin-bottom: 40px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.skill-icon {
+  color: var(--accent-blue);
+  font-size: 1.2rem;
+}
+
+.skill-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #e2e8f0;
+}
+
+/* Stats Styling */
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+  gap: 16px;
+  margin-top: 80px;
+}
+
+.stat-card {
+  padding: 32px 16px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.03), transparent);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  text-align: center;
+}
+
+.stat-icon-bg {
+  font-size: 24px;
+  margin-bottom: 16px;
+  display: inline-block;
+  padding: 12px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 50%;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  margin: 0;
+}
+
+.stat-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 900;
+  color: #64748b;
+  margin-top: 8px;
+}
+
+/* Specific Stat Icon Colors */
+.icon-emerald { color: #10b981; }
+.icon-yellow { color: #f59e0b; }
+.icon-blue { color: #3b82f6; }
+.icon-cyan { color: #06b6d4; }
+
+/* MEDIA QUERIES FOR DESKTOP (Large screens) */
+@media (min-width: 1024px) {
+  .content-grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  
+  .image-column {
+    grid-column: span 5;
+  }
+  
+  .text-column {
+    grid-column: span 7;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stats-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .desktop-only {
+    display: block;
+  }
+}
+
+@media (max-width: 1023px) {
+  .desktop-only {
+    display: none;
+  }
+}

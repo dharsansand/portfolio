@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const navItems = ["Home", "Services", "About", "Portfolio", "Contact"];
+const navItems = ["Home", "About", "Skills", "project", "Contact"];
 
 export default function Header() {
   const [active, setActive] = useState("Home");
