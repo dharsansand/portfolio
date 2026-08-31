@@ -5,17 +5,20 @@ import Projects from "./Projects"
 import Services from "./Services"
 import Contact from "./Contact"
 import Footer from "./Footer"
+import Header from './components/Header';
+
 
 export default function Home() {
   return ( 
     <>
+<Header/>
       <Banner />
-      <About/>
+      {/* <About/>
       <Skills/>
       <Projects/>
       <Services/>
       <Contact/>
-      <Footer/>
+      <Footer/> */}
 
     </>
   );

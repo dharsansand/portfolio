@@ -19,11 +19,17 @@ export default function Header() {
             onClick={() => setActive(item)}
             className={`nav-button ${active === item ? 'active' : ''}`}
           >
+           
             {active === item && (
               <motion.div 
-                layoutId="nav-pill" 
+                layoutId="nav-pill-light" 
                 className="nav-pill"
-                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }} 
+                transition={{ 
+                    type: "spring", 
+                    stiffness: 300, 
+                    damping: 30,
+                    duration: 0.5 
+                }} 
               />
             )}
             {item}
@@ -31,7 +37,7 @@ export default function Header() {
         ))}
       </nav>
 
-      <button className="btn-main header-hire-btn">
+      <button className="header-hire-btn">
         Hire Me
       </button>
     </header>

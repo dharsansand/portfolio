@@ -1,192 +1,268 @@
 /* home.css */
-:root {
-  --bg-deep: #0a1931;       
-  --accent-light: #b3cfe5;  
-  --accent-mid: #4a7fa7;    
-  --text-white: #ffffff;    
-}
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  background-color: var(--bg-deep) !important;
-  color: var(--text-white);
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
-}
-
-/* 1. BASE LAYOUT (Desktop) */
-.home-container {
+.hero-banner {
+  cursor: none;
   position: relative;
-  z-index: 10;
-  padding: 0 8%;
-  min-height: 100vh;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  align-items: center;
-  min-height: 100vh; /* Changed from 85vh to 100vh for full screen desktop */
-  gap: 60px;
-  padding-top: 60px;
-}
-
-/* Typography */
-.user-name {
-  font-size: clamp(3.5rem, 8vw, 5.5rem);
-  font-weight: 900;
-  color: #ffffff;
-  margin: 10px 0;
-  line-height: 1.1;
-  letter-spacing: -2px;
-}
-
-.intro-text {
-  color: var(--accent-light);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-
-.social-row {
+  background: var(--background);
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
   display: flex;
-  gap: 15px;
-  margin: 35px 0;
+  justify-content: center;
+  align-items: center;
+  color: var(--vd-cream);
+}
+.cursor-dot {
+  position: fixed;
+  top: -6px; /* Offset by half size to center */
+  left: -6px;
+  width: 12px;
+  height: 12px;
+  background-color: var(--vd-peach);
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none; /* Allows you to click buttons through it */
+  box-shadow: 0 0 10px var(--vd-peach);
+}
+.cursor-glow {
+  position: fixed;
+  top: -150px; /* Offset by half size to center */
+  left: -150px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    circle, 
+    rgba(147, 80, 115, 0.15) 0%, 
+    transparent 70%
+  );
+  border-radius: 50%;
+  z-index: 9998;
+  pointer-events: none;
+  filter: blur(20px);
+}
+a, button {
+  cursor: none; /* Hide default even over buttons */
 }
 
-.icon-circle {
-  width: 45px;
-  height: 45px;
-  border-radius: 12px;
+.bg-watermark {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  text-align: center;
+  font-size: 16.5vw; /* Fits 'PORTFOLIO' full width */
+  font-weight: 900;
+  color: var(--vd-mid);
+  opacity: 0.12; 
+  z-index: 0;
+  pointer-events: none;
+  letter-spacing: -0.4vw; 
+  white-space: nowrap;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+
+
+.greeting {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hi { color: var(--vd-cream); }
+.im { color: rgba(248, 244, 233, 0.3); }
+
+.name-heading {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -3px;
+  margin-bottom: 20px;
+  text-shadow: 4px 4px 0px var(--vd-deep); /* Depth Effect */
+}
+
+.highlight { color: var(--vd-mid); }
+.subtitle { color: var(--vd-cream); font-size: 0.6em; letter-spacing: 0; }
+
+.description {
+  max-width: 550px;
+  margin: 0 auto 30px auto;
+  color: rgba(248, 244, 233, 0.5);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* --- SOCIALS --- */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.s-icon {
+  width: 50px;
+  height: 50px;
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(179, 207, 229, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--accent-light);
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--vd-cream);
+  font-size: 1.3rem;
+  transition: 0.3s;
+  text-decoration: none;
 }
 
-.action-row {
+.s-icon:hover {
+  background: var(--vd-mid);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(147, 80, 115, 0.4);
+}
+
+/* --- BUTTONS --- */
+.button-group {
   display: flex;
+  justify-content: center;
   gap: 20px;
-  margin-top: 20px;
 }
 
-.btn-main, .btn-outline {
-  padding: 15px 35px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-main {
-  background: var(--accent-mid);
-  color: white;
+.hire-btn {
+  background: var(--vd-cream);
+  color: var(--background);
   border: none;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.btn-outline {
-  background: transparent;
-  color: var(--accent-light);
-  border: 1px solid var(--accent-mid);
-}
-
-.stats-container {
+  padding: 16px 36px;
+  border-radius: 100px;
+  font-weight: 800;
+  font-size: 0.9rem;
   display: flex;
-  gap: 60px;
-  margin-top: 50px;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.stat-box { display: flex; flex-direction: column; }
-.stat-num { font-size: 2.8rem; font-weight: 800; color: #ffffff; line-height: 1; }
-.stat-txt { font-size: 0.8rem; color: var(--accent-light); text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; }
-
-/* Image Styling */
-.hero-visual { display: flex; justify-content: center; position: relative; }
-.main-img {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 40px;
-  mix-blend-mode: lighten; 
-  filter: contrast(1.1) brightness(1.05);
+.resume-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--vd-cream);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 36px;
+  border-radius: 100px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
 }
 
-/* 2. MEDIA QUERIES (Ordered from Largest to Smallest) */
+.hire-btn:hover { background: var(--vd-peach); transform: scale(1.05); }
 
-/* TABLET (1024px to 768px) */
-@media (max-width: 1024px) {
-  .home-container { padding: 0 5%; }
-  
-  .hero-grid {
-    grid-template-columns: 1fr; /* Switch to 1 column */
-    text-align: center;
-    min-height: auto; /* Allow content to set height */
-    padding-top: 100px;
-    padding-bottom: 50px;
-    gap: 40px;
-  }
-
-  .hero-visual { order: 1; }
-  .hero-content { 
-    order: 2; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .main-img { max-width: 320px; }
-  .user-name { font-size: 3.5rem; }
-  .social-row, .action-row, .stats-container { justify-content: center; }
+/* --- SCROLL INDICATOR --- */
+.scroll-box {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  color: rgba(248, 244, 233, 0.3);
 }
 
-/* MOBILE (Standard) */
+.mouse-wheel {
+  width: 20px;
+  height: 35px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+/* --- ENHANCED MOBILE VIEW --- */
+
 @media (max-width: 768px) {
-  .user-name { font-size: 3rem; }
-  .stats-container { gap: 30px; }
-  .stat-num { font-size: 2.2rem; }
+  .hero-main {
+    width: 95%;
+    padding: 0 10px;
+  }
+
+  .name-heading {
+    font-size: 3.5rem; /* Better size for tablets */
+    margin-bottom: 15px;
+  }
+
+  .bg-watermark {
+    font-size: 16vw;
+    letter-spacing: -0.5vw;
+    opacity: 0.08; /* Slightly lighter on small screens */
+  }
 }
 
-/* SMALL MOBILE (Exactly like your screenshot) */
-@media (max-width: 350px) {
-  .user-name { font-size: 2.4rem; letter-spacing: -1px; }
-  
-  .main-img { max-width: 260px; }
+@media (max-width: 600px) {
+  /* Fix for the huge watermark on mobile */
+  .bg-watermark {
+    font-size: 17vw; /* Larger percentage to fill the narrow screen width */
+    letter-spacing: -1vw;
+    top: 45%; /* Move it up slightly so it doesn't cover the buttons */
+  }
 
-  .action-row {
+  .name-heading {
+    font-size: 2.6rem; /* Clean size for phones */
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .subtitle {
+    font-size: 0.5em; /* Shrink 'Full Stack Developer' to fit one line */
+    display: block;
+    margin-top: 5px;
+  }
+
+  .description {
+    font-size: 0.9rem;
+    padding: 0 15px;
+    margin-bottom: 25px;
+  }
+
+  /* Stack buttons nicely */
+  .button-group {
     flex-direction: column;
+    gap: 12px;
     width: 100%;
     align-items: center;
-    gap: 12px;
   }
 
-  .btn-main, .btn-outline {
+  .hire-btn, .resume-btn {
     width: 100%;
-    max-width: 280px;
-    padding: 12px;
-  }
-
-  .stats-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two boxes per row */
-    gap: 20px;
-    margin-top: 40px;
-  }
-
-  .stat-num { font-size: 1.8rem; }
-  .stat-txt { font-size: 0.7rem; letter-spacing: 1px; }
-
-  /* Fix for Particle Text overflow */
-  .particle-box {
-    width: 100%;
-    overflow: hidden;
-    display: flex;
+    max-width: 280px; /* Standard mobile button width */
+    padding: 14px;
     justify-content: center;
+  }
+
+  .social-links {
+    margin-bottom: 30px;
+    gap: 15px;
+  }
+
+  .s-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Extra small phones (iPhone SE, etc.) */
+@media (max-width: 380px) {
+  .name-heading {
+    font-size: 2.2rem;
+  }
+  
+  .bg-watermark {
+    font-size: 17vw;
   }
 }

@@ -1,69 +1,109 @@
 'use client';
-import { motion } from 'framer-motion';
-import Header from './components/Header';
-import ParticleText from './components/ParticleText';
-import WebThreads from './components/WebThreads'; 
-import { FaDribbble, FaGithub, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { useState, useEffect } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { FiDownload, FiArrowUpRight } from 'react-icons/fi';
+import { FaGithub, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import './home.css';
 
+const letterVariant = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const containerVariant = {
+  visible: { transition: { staggerChildren: 0.1 } },
+};
+
 export default function Banner() {
+  const name = "DHARSAN";
+
+  // Glow Cursor Logic
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  // Smooth out the movement
+  const springConfig = { damping: 25, stiffness: 200 };
+  const cursorX = useSpring(mouseX, springConfig);
+  const cursorY = useSpring(mouseY, springConfig);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
+
   return (
-    <>
-      <WebThreads /> 
-      <div className="home-container">
-        <Header />
-        
-        <main className="hero-grid">
-          <motion.div 
-            className="hero-content"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+    <div className="hero-banner">
+      {/* 1. GLOW CURSOR ELEMENTS */}
+      <motion.div 
+        className="cursor-dot" 
+        style={{ x: cursorX, y: cursorY }} 
+      />
+      <motion.div 
+        className="cursor-glow" 
+        style={{ x: cursorX, y: cursorY }} 
+      />
+
+      <div className="bg-watermark">PORTFOLIO</div>
+
+      <main className="hero-main">
+        <motion.div 
+          className="hero-content"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="greeting">
+            <span className="hi">Hi</span> <span className="im">I'm</span>
+          </div>
+          
+          <motion.h1 
+            className="name-heading"
+            variants={containerVariant}
+            initial="hidden"
+            animate="visible"
           >
-            <p className="intro-text">Hi I am</p>
-            <h1 className="user-name">DHARSAN</h1>
-            
-            <div className="particle-box">
-              <ParticleText text="Full Stack Developer" />
-            </div>
+            <span className="highlight">
+              {name.split("").map((char, index) => (
+                <motion.span key={index} variants={letterVariant} style={{ display: 'inline-block' }}>
+                  {char}
+                </motion.span>
+              ))}
+            </span> 
+            <br />
+            <span className="subtitle">FULL STACK DEVELOPER</span>
+          </motion.h1>
 
-            <div className="social-row">
-               <motion.div whileTap={{scale: 0.9}} className="icon-circle"><FaInstagram /></motion.div>
-               <motion.div whileTap={{scale: 0.9}} className="icon-circle"><FaLinkedinIn /></motion.div>
-               <motion.div whileTap={{scale: 0.9}} className="icon-circle"><FaGithub /></motion.div>
-            </div>
+          <p className="description">
+            I blend structured engineering with visual storytelling to build 
+            immersive web experiences. Specializing in AI/ML and minimalist UI/UX.
+          </p>
 
-            <div className="action-row">
-              <button className="btn-main">Hire Me</button>
-              <button className="btn-outline">Download CV</button>
-            </div>
+          <div className="social-links">
+            <a href="#" className="s-icon"><FaInstagram /></a>
+            <a href="#" className="s-icon"><FaLinkedinIn /></a>
+            <a href="#" className="s-icon"><FaGithub /></a>
+          </div>
 
-               <div className="stats-container">
-              <div className="stat-box">
-                <span className="stat-num">1.5+</span>
-                <span className="stat-txt">Years Exp</span>
-              </div>
-              <div className="stat-box">
-                <span className="stat-num">10+</span>
-                <span className="stat-txt">Projects</span>
-              </div>
-            </div>
-          </motion.div>
+          <div className="button-group">
+            <button className="hire-btn">
+              HIRE ME <FiArrowUpRight />
+            </button>
+            <button className="resume-btn">
+              <FiDownload /> RESUME
+            </button>
+          </div>
+        </motion.div>
+      </main>
 
-          <motion.div 
-            className="hero-visual"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
-          >
-            <img 
-              src="https://i.pinimg.com/736x/1b/e0/f3/1be0f32ae63d48eee8a2e9abba0dda1d.jpg" 
-              className="main-img" 
-              alt="Profile"
-            />
-          </motion.div>
-        </main>
+      <div className="scroll-box">
+        <div className="mouse-wheel"></div>
+        <span>SCROLL DOWN</span>
       </div>
-    </>
+    </div>
   );
 }
