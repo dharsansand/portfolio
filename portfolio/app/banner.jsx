@@ -38,7 +38,7 @@ export default function Banner() {
 
   return (
     <div className="hero-banner">
-      {/* 1. GLOW CURSOR ELEMENTS */}
+    
       <motion.div 
         className="cursor-dot" 
         style={{ x: cursorX, y: cursorY }} 
@@ -75,19 +75,41 @@ export default function Banner() {
               ))}
             </span> 
             <br />
-            <span className="subtitle">FULL STACK DEVELOPER</span>
+            <span className="subtitle">FULL STACK DEVELOPER(MERN)</span>
           </motion.h1>
 
           <p className="description">
-            I blend structured engineering with visual storytelling to build 
-            immersive web experiences. Specializing in AI/ML and minimalist UI/UX.
+           MERN Stack Developer with 1+ years of experience building scalable ERP/CRM systems. Expert in React, Node.js, and RTK Query. Proven track record of optimizing database performance by 60% and automating complex business workflows.
           </p>
 
-          <div className="social-links">
-            <a href="#" className="s-icon"><FaInstagram /></a>
-            <a href="#" className="s-icon"><FaLinkedinIn /></a>
-            <a href="#" className="s-icon"><FaGithub /></a>
-          </div>
+        <div className="social-links">
+  <a 
+    href="https://www.instagram.com/dharsan._.27?igsi=MWlkdzJqYTMwMjM0cg==" 
+    className="s-icon" 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    <FaInstagram />
+  </a>
+  
+  <a 
+    href="https://www.linkedin.com/in/dharsan-s-b7741a252/" 
+    className="s-icon" 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    <FaLinkedinIn />
+  </a>
+  
+  <a 
+    href="https://github.com/dharsansand" 
+    className="s-icon" 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    <FaGithub />
+  </a>
+</div>
 
           <div className="button-group">
             <button className="hire-btn">

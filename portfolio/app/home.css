@@ -160,6 +160,8 @@ a, button {
 }
 
 .hire-btn:hover { background: var(--vd-peach); transform: scale(1.05); }
+.resume-btn:hover { background: var(--vd-peach); transform: scale(1.05); }
+
 
 /* --- SCROLL INDICATOR --- */
 .scroll-box {
