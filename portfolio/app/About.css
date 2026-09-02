@@ -18,6 +18,7 @@
   color: var(--text-main);
   font-family: var(--font-sans);
   position: relative;
+  overflow: hidden;
 }
 
 .container {
@@ -30,7 +31,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
-  margin-bottom: 80px;
+  margin-bottom: 70px;
 }
 
 /* Image Styling */
@@ -38,7 +39,7 @@
   position: relative;
   border-radius: 30px;
   overflow: hidden;
-  box-shadow: 20px 20px 0px var(--deep-violet);
+  box-shadow: 18px 18px 0px var(--deep-violet);
   border: 1px solid var(--glass-border);
 }
 
@@ -50,16 +51,16 @@
 }
 
 .image-frame:hover img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 /* Typography */
 .about-me-tag {
   color: var(--peach-accent);
-  letter-spacing: 5px;
+  letter-spacing: 4px;
   font-size: 13px;
   font-weight: 800;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -73,88 +74,100 @@
 
 .about-title {
   font-family: var(--font-serif);
-  font-size: clamp(3rem, 5vw, 4.5rem);
-  margin-bottom: 25px;
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  margin-bottom: 20px;
   line-height: 1.1;
+  color: #ffffff;
 }
 
 .about-description {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.8;
-  color: rgba(248, 244, 233, 0.7);
-  max-width: 500px;
+  color: rgba(248, 244, 233, 0.75);
+  max-width: 520px;
 }
 
+/* Skill Badges */
 .skill-badges-container {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 50px; /* Increased from 100px to ensure no overlap with bio text */
+  margin-top: 40px;
   position: relative;
 }
 
 .skill-pill-wrapper {
   position: relative;
-   display: inline-block;
+  display: inline-block;
 }
 
 .skill-pill {
-  padding: 10px 22px;
+  padding: 10px 20px;
   border-radius: 50px;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13.5px;
+  font-weight: 500;
   transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(8px);
+  user-select: none;
 }
 
+.skill-pill:hover,
 .skill-pill.active {
   background: var(--accent-violet);
   border-color: var(--peach-accent);
-  color: white;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(147, 80, 115, 0.4);
 }
 
+/* Responsive Popup Card */
 .skill-desc-card {
   position: absolute;
-  bottom: 130%; /* Changed from 150% to sit closer to the pill */
-  left: -50%;
+  bottom: calc(100% + 12px);
+  left: -40%;
   transform: translateX(-50%);
-  width: 280px;
-  background: #11071F; /* Solid background to ensure text is readable */
-  border: 1px solid var(--accent-violet);
-  padding: 16px;
+  width: min(260px, 80vw);
+  box-sizing: border-box;
+  padding: 12px 14px;
+  background: rgba(18, 14, 22, 0.95);
+  border: 1px solid rgba(246, 219, 192, 0.3);
   border-radius: 12px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.9); /* Darker shadow for depth */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
   z-index: 100;
+  text-align: center;
   pointer-events: none;
 }
+
 .skill-desc-card::after {
   content: '';
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid var(--accent-violet);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--accent-violet);
 }
 
 .card-accent {
-  width: 40px;
-  height: 3px;
+  width: 35px;
+  height: 2px;
   background: var(--peach-accent);
-  margin-bottom: 12px;
+  margin: 0 auto 8px auto;
 }
 
 .skill-desc-card p {
-  font-size: 13px;
+  font-size: 0.8rem;
   color: var(--peach-accent);
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
-/* Stats Styling */
+/* Stats Cards Section */
 .stats-footer-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -163,143 +176,159 @@
 
 .stat-card-v2 {
   background: var(--glass-bg);
-  padding: 40px 20px;
-  border-radius: 25px;
+  padding: 30px 15px;
+  border-radius: 20px;
   text-align: center;
   border: 1px solid var(--glass-border);
-  transition: transform 0.3s ease, border 0.3s ease;
-}
-
-.stat-card-v2:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent-violet);
-}
-
-.stat-value-v2 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 5px;
-  font-family: var(--font-serif);
-}
-
-.stat-label-v2 {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: rgba(248, 244, 233, 0.5);
-}
-.stat-card-v2 {
-  background: var(--glass-bg);
-  padding: 40px 20px;
-  border-radius: 25px;
-  text-align: center;
-  border: 1px solid var(--glass-border);
-  position: relative;
-  overflow: hidden; /* Important for the slide effect */
-  cursor: pointer;
-  height: 180px; /* Fixed height for consistent hover feel */
+  min-height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.stat-card-v2:hover,
+.stat-card-v2.hovered {
+  background: rgba(147, 80, 115, 0.15);
+  border-color: var(--accent-violet);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .stat-content-wrapper {
   width: 100%;
-}
-
-.stat-hover-info {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  margin-top: 5px;
+  transition: transform 0.35s ease;
+}
+
+.stat-card-v2:hover .stat-content-wrapper,
+.stat-card-v2.hovered .stat-content-wrapper {
+  transform: translateY(-8px);
+}
+
+.stat-value-v2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+  font-family: var(--font-serif);
+  color: var(--text-main);
+  line-height: 1;
+}
+
+.stat-label-v2 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(248, 244, 233, 0.6);
+  margin-bottom: 4px;
+}
+
+/* Hover / Reveal Info */
+.stat-hover-info {
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.35s ease, transform 0.35s ease, max-height 0.35s ease;
+  overflow: hidden;
+}
+
+.stat-hover-info.visible,
+.stat-card-v2:hover .stat-hover-info {
+  opacity: 1;
+  max-height: 80px;
+  transform: translateY(6px);
 }
 
 .stat-icon {
-  font-size: 24px;
-  color: var(--accent-violet);
+  font-size: 22px;
+  color: var(--peach-accent);
 }
 
 .stat-detail-text {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--peach-accent);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
+  margin: 0;
 }
 
-/* Hover glow effect for the card */
-.stat-card-v2:hover {
-  background: rgba(147, 80, 115, 0.05);
-  border-color: var(--accent-violet);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-@media (max-width: 768px) {
-  .skill-badges-container {
-    margin-top: 160px; /* Even more room for mobile screens */
-    justify-content: center;
-  }
-  
-  .skill-desc-card {
-    width: 240px;
-    bottom: 125%;
-  }
-}
-/* Responsive */
+/* =========================================
+   RESPONSIVE BREAKPOINTS
+   ========================================= */
 @media (max-width: 992px) {
-  .about-main-grid { grid-template-columns: 1fr; text-align: center; }
-  .about-description { margin: 0 auto; }
-  .skill-badges-container { justify-content: center; gap: 30px; }
-  .image-frame { max-width: 450px; margin: 0 auto; }
-  .stats-footer-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 500px) {
-  /* 1. Stack the main layout and center text */
   .about-main-grid {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 30px;
+    gap: 40px;
+  }
+  .about-description { margin: 0 auto; }
+  .about-me-tag { justify-content: center; }
+  .skill-badges-container { justify-content: center; }
+  .image-frame { max-width: 380px; margin: 0 auto; }
+  .stats-footer-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+}
+
+@media (max-width: 600px) {
+  .about-section {
+    padding: 70px 16px;
   }
 
-  .about-description {
-    margin: 0 auto; /* Centers the paragraph block */
+  .about-title {
+    font-size: 2.2rem;
   }
 
-  /* 2. Push buttons down to give popups room */
   .skill-badges-container { 
-    margin-top: 160px; 
-    justify-content: center;
+    margin-top: 50px; 
   }
 
-  /* 3. Make card fit small screens perfectly */
-  .skill-desc-card { 
-    width: 280px;
-    max-width: 85vw; 
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 130%;
-    padding: 12px;
+  .skill-desc-card {
+    width: min(220px, 75vw);
+    font-size: 0.75rem;
+    padding: 10px;
+    bottom: calc(100% + 10px);
   }
 
-  /* 4. Ensure arrow stays centered */
-  .skill-desc-card::after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  /* 5. Stack stats cards in 1 column */
   .stats-footer-grid { 
     grid-template-columns: 1fr; 
-    gap: 15px;
+    gap: 12px;
   }
 
   .stat-card-v2 {
-    padding: 25px 15px;
+    min-height: 150px;
+    padding: 20px 12px;
   }
 
   .stat-value-v2 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 500px) {
+  /* 1. Hide the popup card completely on mobile */
+  .skill-desc-card {
+    display: none !important;
+  }
+
+  /* 2. Remove the extra gap needed for popups */
+  .skill-badges-container {
+    margin-top: 24px !important;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  /* 3. Keep the skill badges clean and readable */
+  .skill-pill {
+    padding: 8px 16px;
+    font-size: 12px;
   }
 }
