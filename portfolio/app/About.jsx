@@ -1,101 +1,155 @@
 'use client';
-import React from 'react';
-import { motion } from 'framer-motion';
-import { 
-  FiGlobe, FiServer, FiDatabase, FiShield, 
-  FiZap, FiCpu, FiTrendingUp, FiCheckCircle 
-} from 'react-icons/fi';
-import './About.css'; // Import the separate CSS file
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import './About.css';
+import { FiBriefcase, FiCpu, FiDatabase, FiHeadphones } from 'react-icons/fi';
 
 const About = () => {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   const skills = [
-    { name: "Full-Stack MERN Development", icon: <FiGlobe /> },
-    { name: "Enterprise ERP/CRM Systems", icon: <FiServer /> },
-    { name: "MongoDB Aggregation Expert", icon: <FiDatabase /> },
-    { name: "RBAC & JWT Security", icon: <FiShield /> },
-    { name: "Performance Optimization", icon: <FiZap /> },
-    { name: "Cloud Integration", icon: <FiCpu /> }
+    { name: "React.js Development", desc: "Designing seamless data flows between frontend and backend" },
+    { name: "Context API", desc: "Designing seamless data flows between frontend and backend" },
+    { name: "RESTful API Integration", desc: "Designing seamless data flows between frontend and backend." },
+    { name: "Redux Toolkit (RTK Query)", desc: "Advanced state management and automated data fetching/caching." }
   ];
 
-  const stats = [
-    { label: "Lead Efficiency", value: "70%", icon: <FiTrendingUp className="icon-emerald" /> },
-    { label: "Faster Queries", value: "60%", icon: <FiZap className="icon-yellow" /> },
-    { label: "Data Migration", value: "10K+", icon: <FiDatabase className="icon-blue" /> },
-    { label: "Manual Ops Saved", value: "75%", icon: <FiCheckCircle className="icon-cyan" /> },
-  ];
+
+
+const stats = [
+  { value: "15+", label: "Projects", icon: <FiBriefcase />, detail: "Successfully Delivered" },
+  { value: "10+", label: "Technologies", icon: <FiCpu />, detail: "Modern Stack" },
+  { value: "100+", label: "API Query", icon: <FiDatabase />, detail: "Data Optimization" },
+  { value: "24+", label: "Support", icon: <FiHeadphones />, detail: "Technical Assistance" },
+];
 
   return (
-    <section className="about-section">
-      <div className="bg-glow"></div>
-      
-      <motion.div 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="container"
-      >
-        {/* Header */}
-        <header className="about-header">
-          <div className="discovery-tag">
-            <span className="line"></span>
-            <span className="tag-text">Discovery</span>
-          </div>
-          <h2 className="main-title">
-            Engineering <span className="gradient-text">Business Logic</span> <br className="desktop-only" /> 
-            into Scalable Reality.
-          </h2>
-        </header>
-
-        <div className="content-grid">
-          {/* Image Side */}
-          <div className="image-column">
-            <div className="image-wrapper">
+    <section id="about" className="about-section">
+      <div className="container">
+        <div className="about-main-grid">
+          
+          {/* Left Side: Image Container */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="about-image-column"
+          >
+            <div className="image-frame">
+              <div className="image-overlay"></div>
               <img 
                 src="https://as1.ftcdn.net/jpg/08/98/22/00/1000_F_898220026_YpEtXl3GCaJM39rPLux8t0acxy3wpsQN.webp" 
                 alt="Dharsan S" 
-                className="profile-img"
               />
-              <div className="role-badge">
-                <p className="badge-label">Current Role</p>
-                <p className="badge-value">Lead MERN Stack Architect</p>
-              </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Text Side */}
-          <div className="text-column">
-            <p className="lead-text">
-              I specialize in bridging the gap between complex business requirements and 
-              <strong> high-performance software architecture.</strong> 
-            </p>
+          {/* Right Side: Content */}
+          <div className="about-text-column">
+            <motion.div 
+               initial={{ opacity: 0, y: 10 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               className="about-me-tag"
+            >
+              <span className="line"></span> ABOUT ME
+            </motion.div>
             
-            <p className="description-text">
-              With a deep focus on the MERN ecosystem, I’ve engineered enterprise-grade 
-              <span className="text-highlight"> ERP/CRM systems</span> that process massive datasets with sub-second latency.
-            </p>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="about-title"
+            >
+              Who Am I
+            </motion.h2>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="about-description"
+            >
+              My name is <strong>Dharsan S</strong>. I am a dedicated Full Stack Developer 
+              passionate about engineering scalable business logic into high-performance 
+              software architecture.
+            </motion.p>
 
-            <div className="skills-grid">
-              {skills.map((skill, i) => (
-                <div key={i} className="skill-item">
-                  <span className="skill-icon">{skill.icon}</span>
-                  <span className="skill-name">{skill.name}</span>
+         
+            <div className="skill-badges-container">
+              {skills.map((skill, index) => (
+                <div 
+                  key={index} 
+                  className="skill-pill-wrapper"
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  <motion.div 
+                    whileHover={{ scale: 1.05 }}
+                    className={`skill-pill ${hoveredIndex === index ? 'active' : ''}`}
+                  >
+                    {skill.name}
+                  </motion.div>
+                  
+                  <AnimatePresence>
+                    {hoveredIndex === index && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.9 }}
+                        className="skill-desc-card"
+                      >
+                        <div className="card-accent"></div>
+                        <p>{skill.desc}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Stats Section */}
-        <div className="stats-container">
-          {stats.map((stat, i) => (
-            <div key={i} className="stat-card">
-              <div className="stat-icon-bg">{stat.icon}</div>
-              <h3 className="stat-value">{stat.value}</h3>
-              <p className="stat-label">{stat.label}</p>
-            </div>
-          ))}
-        </div>
+       <motion.div 
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.4 }}
+  className="stats-footer-grid"
+>
+  {stats.map((stat, i) => (
+    <motion.div 
+      key={i} 
+      className="stat-card-v2"
+      whileHover="hover" // Triggers the "hover" variant in children
+      initial="initial"
+    >
+      {/* Container that slides up */}
+      <motion.div 
+        variants={{
+          initial: { y: 0 },
+          hover: { y: -20 } // Moves content up on hover
+        }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        className="stat-content-wrapper"
+      >
+        <h3 className="stat-value-v2">{stat.value}</h3>
+        <p className="stat-label-v2">{stat.label}</p>
+        
+        {/* The Reveal Section (Icon + Text) */}
+        <motion.div 
+          variants={{
+            initial: { opacity: 0, y: 20 },
+            hover: { opacity: 1, y: 10 }
+          }}
+          className="stat-hover-info"
+        >
+          <span className="stat-icon">{stat.icon}</span>
+          <p className="stat-detail-text">{stat.detail}</p>
+        </motion.div>
       </motion.div>
+    </motion.div>
+  ))}
+</motion.div>
+      </div>
     </section>
   );
 };

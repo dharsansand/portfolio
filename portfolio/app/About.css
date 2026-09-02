@@ -1,21 +1,23 @@
-/* Variables for consistency */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;800&display=swap');
+
 :root {
-  --bg-dark: #020617;
-  --text-main: #94a3b8;
-  --text-bright: #ffffff;
-  --accent-blue: #3b82f6;
+  --bg-dark: #07030d;
+  --text-main: #F8F4E9;
+  --accent-violet: #935073;
+  --deep-violet: #2e1a31;
+  --peach-accent: #F6DBC0;
   --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.1);
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
 }
 
 .about-section {
-  position: relative;
-  min-height: 100vh;
   background-color: var(--bg-dark);
-  padding: 80px 24px;
-  overflow: hidden;
+  padding: 100px 24px;
   color: var(--text-main);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
+  position: relative;
 }
 
 .container {
@@ -23,231 +25,281 @@
   margin: 0 auto;
 }
 
-.bg-glow {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
-  filter: blur(80px);
-  z-index: 0;
-}
-
-/* Header Styling */
-.about-header {
-  margin-bottom: 60px;
-}
-
-.discovery-tag {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.discovery-tag .line {
-  width: 40px;
-  height: 1px;
-  background: var(--accent-blue);
-}
-
-.tag-text {
-  color: var(--accent-blue);
-  text-transform: uppercase;
-  letter-spacing: 0.4em;
-  font-size: 10px;
-  font-weight: 800;
-}
-
-.main-title {
-  font-size: clamp(2.5rem, 8vw, 4.5rem); /* Fluid typography for mobile */
-  font-weight: 800;
-  color: var(--text-bright);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-.gradient-text {
-  background: linear-gradient(90deg, #60a5fa, #818cf8);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Grid Layout */
-.content-grid {
+.about-main-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 48px;
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 80px;
 }
 
 /* Image Styling */
-.image-wrapper {
+.image-frame {
   position: relative;
-  border-radius: 20px;
+  border-radius: 30px;
   overflow: hidden;
+  box-shadow: 20px 20px 0px var(--deep-violet);
   border: 1px solid var(--glass-border);
-  background: #0f172a;
 }
 
-.profile-img {
+.image-frame img {
   width: 100%;
   height: auto;
   display: block;
-  filter: grayscale(100%);
-  transition: 0.5s ease;
+  transition: transform 0.5s ease;
 }
 
-.image-wrapper:hover .profile-img {
-  filter: grayscale(0%);
+.image-frame:hover img {
   transform: scale(1.05);
 }
 
-.role-badge {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  padding: 16px;
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(12px);
-  border-radius: 12px;
-  border: 1px solid var(--glass-border);
-}
-
-.badge-label {
-  font-size: 10px;
-  text-transform: uppercase;
-  color: var(--accent-blue);
-  font-weight: 700;
-  margin: 0;
-}
-
-.badge-value {
-  color: white;
-  font-weight: 500;
-  margin: 0;
-}
-
-/* Text Column Styling */
-.lead-text {
-  font-size: 1.25rem;
-  line-height: 1.6;
-  color: #cbd5e1;
-  margin-bottom: 24px;
-}
-
-.text-highlight {
-  color: var(--accent-blue);
-}
-
-.description-text {
-  margin-bottom: 40px;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-.skill-item {
+/* Typography */
+.about-me-tag {
+  color: var(--peach-accent);
+  letter-spacing: 5px;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 15px;
   display: flex;
   align-items: center;
+  gap: 10px;
+}
+
+.about-me-tag .line {
+  width: 30px;
+  height: 2px;
+  background: var(--accent-violet);
+}
+
+.about-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  margin-bottom: 25px;
+  line-height: 1.1;
+}
+
+.about-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(248, 244, 233, 0.7);
+  max-width: 500px;
+}
+
+.skill-badges-container {
+  display: flex;
+  flex-wrap: wrap;
   gap: 12px;
+  margin-top: 50px; /* Increased from 100px to ensure no overlap with bio text */
+  position: relative;
 }
 
-.skill-icon {
-  color: var(--accent-blue);
-  font-size: 1.2rem;
+.skill-pill-wrapper {
+  position: relative;
+   display: inline-block;
 }
 
-.skill-name {
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #e2e8f0;
+.skill-pill {
+  padding: 10px 22px;
+  border-radius: 50px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.skill-pill.active {
+  background: var(--accent-violet);
+  border-color: var(--peach-accent);
+  color: white;
+}
+
+.skill-desc-card {
+  position: absolute;
+  bottom: 130%; /* Changed from 150% to sit closer to the pill */
+  left: -50%;
+  transform: translateX(-50%);
+  width: 280px;
+  background: #11071F; /* Solid background to ensure text is readable */
+  border: 1px solid var(--accent-violet);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.9); /* Darker shadow for depth */
+  z-index: 100;
+  pointer-events: none;
+}
+.skill-desc-card::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--accent-violet);
+}
+
+.card-accent {
+  width: 40px;
+  height: 3px;
+  background: var(--peach-accent);
+  margin-bottom: 12px;
+}
+
+.skill-desc-card p {
+  font-size: 13px;
+  color: var(--peach-accent);
+  margin: 0;
+  line-height: 1.5;
 }
 
 /* Stats Styling */
-.stats-container {
+.stats-footer-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
-  gap: 16px;
-  margin-top: 80px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
-.stat-card {
-  padding: 32px 16px;
-  background: linear-gradient(145deg, rgba(255,255,255,0.03), transparent);
-  border: 1px solid var(--glass-border);
-  border-radius: 20px;
+.stat-card-v2 {
+  background: var(--glass-bg);
+  padding: 40px 20px;
+  border-radius: 25px;
   text-align: center;
+  border: 1px solid var(--glass-border);
+  transition: transform 0.3s ease, border 0.3s ease;
 }
 
-.stat-icon-bg {
-  font-size: 24px;
-  margin-bottom: 16px;
-  display: inline-block;
-  padding: 12px;
-  background: rgba(255,255,255,0.05);
-  border-radius: 50%;
+.stat-card-v2:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-violet);
 }
 
-.stat-value {
-  font-size: 2.5rem;
+.stat-value-v2 {
+  font-size: 3rem;
   font-weight: 800;
-  color: white;
-  margin: 0;
+  margin-bottom: 5px;
+  font-family: var(--font-serif);
 }
 
-.stat-label {
-  font-size: 10px;
+.stat-label-v2 {
+  font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-weight: 900;
-  color: #64748b;
-  margin-top: 8px;
+  letter-spacing: 2px;
+  color: rgba(248, 244, 233, 0.5);
+}
+.stat-card-v2 {
+  background: var(--glass-bg);
+  padding: 40px 20px;
+  border-radius: 25px;
+  text-align: center;
+  border: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden; /* Important for the slide effect */
+  cursor: pointer;
+  height: 180px; /* Fixed height for consistent hover feel */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Specific Stat Icon Colors */
-.icon-emerald { color: #10b981; }
-.icon-yellow { color: #f59e0b; }
-.icon-blue { color: #3b82f6; }
-.icon-cyan { color: #06b6d4; }
-
-/* MEDIA QUERIES FOR DESKTOP (Large screens) */
-@media (min-width: 1024px) {
-  .content-grid {
-    grid-template-columns: repeat(12, 1fr);
-  }
-  
-  .image-column {
-    grid-column: span 5;
-  }
-  
-  .text-column {
-    grid-column: span 7;
-  }
-
-  .skills-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .stats-container {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .desktop-only {
-    display: block;
-  }
+.stat-content-wrapper {
+  width: 100%;
 }
 
-@media (max-width: 1023px) {
-  .desktop-only {
-    display: none;
+.stat-hover-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.stat-icon {
+  font-size: 24px;
+  color: var(--accent-violet);
+}
+
+.stat-detail-text {
+  font-size: 12px;
+  color: var(--peach-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Hover glow effect for the card */
+.stat-card-v2:hover {
+  background: rgba(147, 80, 115, 0.05);
+  border-color: var(--accent-violet);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .skill-badges-container {
+    margin-top: 160px; /* Even more room for mobile screens */
+    justify-content: center;
+  }
+  
+  .skill-desc-card {
+    width: 240px;
+    bottom: 125%;
+  }
+}
+/* Responsive */
+@media (max-width: 992px) {
+  .about-main-grid { grid-template-columns: 1fr; text-align: center; }
+  .about-description { margin: 0 auto; }
+  .skill-badges-container { justify-content: center; gap: 30px; }
+  .image-frame { max-width: 450px; margin: 0 auto; }
+  .stats-footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 500px) {
+  /* 1. Stack the main layout and center text */
+  .about-main-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .about-description {
+    margin: 0 auto; /* Centers the paragraph block */
+  }
+
+  /* 2. Push buttons down to give popups room */
+  .skill-badges-container { 
+    margin-top: 160px; 
+    justify-content: center;
+  }
+
+  /* 3. Make card fit small screens perfectly */
+  .skill-desc-card { 
+    width: 280px;
+    max-width: 85vw; 
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 130%;
+    padding: 12px;
+  }
+
+  /* 4. Ensure arrow stays centered */
+  .skill-desc-card::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* 5. Stack stats cards in 1 column */
+  .stats-footer-grid { 
+    grid-template-columns: 1fr; 
+    gap: 15px;
+  }
+
+  .stat-card-v2 {
+    padding: 25px 15px;
+  }
+
+  .stat-value-v2 {
+    font-size: 2.5rem;
   }
 }

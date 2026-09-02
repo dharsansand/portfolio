@@ -1,131 +1,134 @@
 'use client';
-import React from 'react';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  FiMonitor, FiServer, FiDatabase, FiLayers, 
-  FiCheckCircle, FiCode, FiActivity 
-} from 'react-icons/fi';
-import './Skills.css'; // Importing separate CSS
+  Code2, Database, Terminal, Globe, Settings, 
+  Layers, Cpu, ShieldCheck, Box, Workflow, CheckCircle2 
+} from 'lucide-react';
+import './Skills.css';
 
-const Skills = () => {
-  const skillCategories = [
-    {
-      title: "Frontend Dev",
-      icon: <FiMonitor />,
-      colorClass: "blue-icon",
-      skills: ["React.js", "JavaScript (ES6+)", "Redux Toolkit", "React Hooks", "Tailwind CSS", "Material UI", "HTML5/CSS3"]
-    },
-    {
-      title: "Backend & Cloud",
-      icon: <FiServer />,
-      colorClass: "emerald-icon",
-      skills: ["Node.js", "Express.js", "RESTful APIs", "Socket.io", "Puppeteer (PDF)", "Redis", "JWT Auth"]
-    },
-    {
-      title: "Databases",
-      icon: <FiDatabase />,
-      colorClass: "amber-icon",
-      skills: ["MongoDB (Aggregation)", "MySQL", "Database Optimization", "Data Modeling", "Index Tuning"]
-    },
-    {
-      title: "DevOps & Tools",
-      icon: <FiLayers />,
-      colorClass: "purple-icon",
-      skills: ["Git/GitHub", "Postman", "CI/CD Pipelines", "Vercel / Render", "Cloudinary", "Linux Basics"]
-    }
-  ];
+const skillsData = {
+  "Frontend": [
+    { name: "React.js", icon: <Code2 />, points: ["Hooks & Custom Logic", "Virtual DOM Optimization", "Component Architecture", "State Management (Context)"] },
+    { name: "Next.js", icon: <Globe />, points: ["Server Side Rendering", "App Router & Routing", "SEO Optimization", "API Routes"] },
+    { name: "JavaScript (ES6+)", icon: <Terminal />, points: ["Async/Await & Promises", "ES6+ Modern Syntax", "DOM Manipulation", "Functional Programming"] },
+    { name: "Redux Toolkit", icon: <Layers />, points: ["Global State Management", "RTK Query Integration", "Slices & Reducers", "Middleware Setup"] },
+    { name: "Tailwind CSS", icon: <Box />, points: ["Responsive Design", "Utility-First Styling", "Custom Configurations", "Animation Layouts"] },
+    { name: "Material UI", icon: <Box />, points: ["Theming & Customization", "Component Library", "Grid Layout System", "Responsive UI Elements"] },
+  ],
+  "Backend": [
+    { name: "Node.js", icon: <Cpu />, points: ["Event Loop & Perf", "File System API", "NPM Ecosystem", "Environment Config"] },
+    { name: "Express.js", icon: <Terminal />, points: ["Middleware Design", "REST API Development", "Error Handling", "Authentication"] },
+    { name: "RESTful APIs", icon: <Settings />, points: ["Endpoint Security", "CRUD Operations", "Status Codes", "Data Transformation"] },
+    { name: "Socket.io", icon: <Workflow />, points: ["Real-time Messaging", "Event Handling", "Binary Streaming", "Room Management"] },
+    { name: "Puppeteer", icon: <Code2 />, points: ["Headless Browsing", "Web Scraping", "PDF Generation", "Automated Testing"] },
+    { name: "Redis", icon: <Database />, points: ["Caching Strategy", "Pub/Sub Logic", "Session Storage", "Key-Value Design"] },
+  ],
+  "Database": [
+    { name: "MongoDB", icon: <Database />, points: ["Mongoose Modeling", "Aggregation Pipeline", "NoSQL Schema Design", "Index Optimization"] },
+    { name: "MySQL", icon: <Database />, points: ["Relational Mapping", "Query Optimization", "Stored Procedures", "Join Operations"] },
+  ],
+  "Tools & DevOps": [
+    { name: "Git/GitHub", icon: <Terminal />, points: ["Version Control", "Branching Workflows", "Pull Request Reviews", "Actions CI/CD"] },
+    { name: "Postman", icon: <Settings />, points: ["API Documentation", "Environment Vars", "Automated Testing", "Mock Servers"] },
+  ],
+  "Domain": [
+    { name: "ERP/CRM Systems", icon: <Layers />, points: ["Business Logic", "Enterprise Workflows", "Data Management", "Process Automation"] },
+    { name: "RBAC", icon: <ShieldCheck />, points: ["Permission Logic", "User Roles", "Security Middleware", "Access Control"] },
+  ]
+};
+
+export default function Skills() {
+  const [activeTab, setActiveTab] = useState("Frontend");
+  // Default selected skill is the first one in Frontend (React.js)
+  const [selectedSkill, setSelectedSkill] = useState(skillsData["Frontend"][0]);
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    // When changing tabs, default select the first skill of that tab
+    setSelectedSkill(skillsData[tab][0]);
+  };
 
   return (
-    <section className="skills-section">
-      {/* Background decoration */}
-      <div className="skills-dot-pattern"></div>
-
+    <section id="skills" className="skills-section">
       <div className="skills-container">
-        
-        {/* Section Header */}
-        <header className="skills-header">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="expertise-label"
-          >
-            <span className="label-line"></span>
-            <span className="label-text">Expertise</span>
-          </motion.div>
-          
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="skills-title"
-          >
-            Technical <span className="title-gradient">Stack.</span>
-          </motion.h2>
-        </header>
+        <h2 className="skills-title">My Skills</h2>
 
-        {/* Skills Grid */}
-        <div className="skills-grid">
-          {skillCategories.map((category, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="skill-card"
+        {/* Category Tabs */}
+        <div className="skills-tabs">
+          {Object.keys(skillsData).map((tab) => (
+            <button
+              key={tab}
+              onClick={() => handleTabChange(tab)}
+              className={`tab-button ${activeTab === tab ? 'active' : ''}`}
             >
-              <div className="card-top">
-                <div className={`card-icon ${category.colorClass}`}>
-                  {category.icon}
-                </div>
-                <FiCode className="bg-code-icon" />
-              </div>
-              
-              <h3 className="card-title">{category.title}</h3>
-              
-              <ul className="skill-list">
-                {category.skills.map((skill, idx) => (
-                  <li key={idx} className="skill-item">
-                    <FiCheckCircle className="check-icon" />
-                    <span>{skill}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+              {activeTab === tab && (
+                <motion.div layoutId="activeTab" className="active-bg" />
+              )}
+              <span className="tab-text">{tab}</span>
+            </button>
           ))}
         </div>
 
-        {/* Specialized Banner */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="domain-banner"
-        >
-          <div className="banner-content">
-            <div className="banner-info">
-              <div className="banner-icon-box">
-                <FiActivity />
-              </div>
-              <div>
-                <p className="banner-small-text">Specialized In</p>
-                <p className="banner-main-text">Enterprise Domain Architecture</p>
-              </div>
-            </div>
-            
-            <div className="banner-tags">
-              <span>Sales Workflows</span>
-              <span>Inventory Ledgers</span>
-              <span>Payroll Processing</span>
-              <span>RBAC Architecture</span>
-            </div>
-          </div>
-        </motion.div>
+        {/* Icons Grid */}
+        <div className="skills-content">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="skills-grid"
+            >
+              {skillsData[activeTab].map((skill, index) => (
+                <motion.div 
+                  key={skill.name}
+                  onClick={() => setSelectedSkill(skill)}
+                  className={`skill-card ${selectedSkill.name === skill.name ? 'selected' : ''}`}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <div className="skill-icon">{skill.icon}</div>
+                  <span className="skill-name">{skill.name}</span>
+                  {selectedSkill.name === skill.name && (
+                    <motion.div layoutId="border-glow" className="card-glow" />
+                  )}
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
+        {/* 4 Points Detail Box (from your sketch) */}
+        <div className="skill-details-area">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={selectedSkill.name}
+              initial={{ opacity: 0, opacity: 0 }}
+              animate={{ opacity: 1, opacity: 1 }}
+              exit={{ opacity: 0, opacity: 0 }}
+              className="details-container"
+            >
+              <h3 className="details-header">Core Competencies in {selectedSkill.name}</h3>
+              <div className="points-grid">
+                {selectedSkill.points.map((point, i) => (
+                  <motion.div 
+                    key={i}
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: i * 0.1 }}
+                    className="point-item"
+                  >
+                    <CheckCircle2 className="point-icon" size={18} />
+                    <span>{point}</span>
+                    <div className="point-line"></div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   );
-};
-
-export default Skills;
+}

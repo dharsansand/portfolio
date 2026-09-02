@@ -37,7 +37,7 @@ export default function Banner() {
   }, [mouseX, mouseY]);
 
   return (
-    <div className="hero-banner">
+    <div id="home" className="hero-banner">
     
       <motion.div 
         className="cursor-dot" 

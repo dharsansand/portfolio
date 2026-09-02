@@ -11,14 +11,14 @@ import Header from './components/Header';
 export default function Home() {
   return ( 
     <>
-<Header/>
+      <Header/>
       <Banner />
-      {/* <About/>
+      <About/>
       <Skills/>
-      <Projects/>
-      <Services/>
+    <Projects/>
+      {/* <Services/>
       <Contact/>
-      <Footer/> */}
+      <Footer/>   */}
 
     </>
   );
