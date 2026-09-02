@@ -1,0 +1,31 @@
+.floating-scroll-btn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 999;
+    background: transparent;
+    border: none;
+    color: var(--vd-peach); /* Using your theme color */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.5));
+}
+
+.floating-scroll-btn:hover {
+    color: var(--vd-mid);
+    transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+    .floating-scroll-btn {
+        bottom: 20px;
+        right: 20px;
+    }
+    .floating-scroll-btn svg {
+        width: 35px;
+        height: 35px;
+    }
+}

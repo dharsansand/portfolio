@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import './Header.css'; 
 
-// 1. Update this list to match your actual components
+
 const navItems = ["Home", "About", "Skills", "Projects", "Services", "Contact"];
 
 export default function Header() {
@@ -51,7 +51,7 @@ export default function Header() {
         ))}
       </nav>
 
-      <button className="header-hire-btn">Hire Me</button>
+      <button className="header-hire-btn"  onClick={() => scrollToSection("Contact")} >Hire Me</button>
     </header>
   );
 }

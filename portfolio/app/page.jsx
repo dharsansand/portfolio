@@ -6,6 +6,7 @@ import Services from "./Services"
 import Contact from "./Contact"
 import Footer from "./Footer"
 import Header from './components/Header';
+import ScrollToTop from './components/ScrollToTop'
 
 
 export default function Home() {
@@ -16,9 +17,10 @@ export default function Home() {
       <About/>
       <Skills/>
     <Projects/>
-      {/* <Services/>
-      <Contact/>
-      <Footer/>   */}
+  <Services/>
+       <Contact/>
+      <Footer/>   
+       <ScrollToTop /> 
 
     </>
   );

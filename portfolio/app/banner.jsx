@@ -15,6 +15,7 @@ const containerVariant = {
 };
 
 export default function Banner() {
+    const [active, setActive] = useState("Home");
   const name = "DHARSAN";
 
   // Glow Cursor Logic
@@ -35,6 +36,18 @@ export default function Banner() {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
+    const scrollToSection = (item) => {
+    setActive(item);
+    // Convert "Home" to "home" to match element IDs
+    const sectionId = item.toLowerCase();
+    const element = document.getElementById(sectionId);
+
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  
 
   return (
     <div id="home" className="hero-banner">
@@ -112,7 +125,7 @@ export default function Banner() {
 </div>
 
           <div className="button-group">
-            <button className="hire-btn">
+            <button className="hire-btn" onClick={() => scrollToSection("Contact")}>
               HIRE ME <FiArrowUpRight />
             </button>
             <button className="resume-btn">

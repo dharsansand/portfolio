@@ -1,139 +1,108 @@
 'use client';
-import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  FiLayout, FiCode, FiBarChart2, 
-  FiSettings, FiLink, FiShield, FiArrowRight 
-} from 'react-icons/fi';
+  LayoutDashboard, Code2, BarChart3, 
+  Settings2, Link2, ShieldCheck, ArrowRight 
+} from 'lucide-react';
 import './Services.css';
 
-const Services = () => {
-  const services = [
-    {
-      title: "Custom ERP & CRM Development",
-      description: "Building tailored internal systems to manage leads, inventory, and sales workflows. Centralizing business data into a high-performance dashboard.",
-      icon: <FiLayout />,
-      features: ["Lead Management", "Inventory Tracking", "Sales Workflows"],
-      color: "blue"
-    },
-    {
-      title: "Full-Stack Web Applications",
-      description: "Developing end-to-end web solutions using the MERN stack. From responsive frontends in React to secure, scalable backends in Node.js.",
-      icon: <FiCode />,
-      features: ["SPA Architecture", "State Management", "Responsive UI"],
-      color: "emerald"
-    },
-    {
-      title: "Database Optimization & Analytics",
-      description: "Optimizing complex queries and data structures. Expert in MongoDB Aggregation for generating real-time Profit/Loss and financial reports.",
-      icon: <FiBarChart2 />,
-      features: ["60% Query Speedup", "Data Modeling", "Complex Reporting"],
-      color: "amber"
-    },
-    {
-      title: "Business Process Automation",
-      description: "Automating repetitive tasks like payroll calculations, automated PDF invoice generation, and bulk data migrations.",
-      icon: <FiSettings />,
-      features: ["PDF Generation", "Bulk Data Tools", "Payroll Engines"],
-      color: "purple"
-    },
-    {
-      title: "API Development & Integration",
-      description: "Architecting secure RESTful APIs and integrating third-party services like Razorpay for payments or Cloudinary for media storage.",
-      icon: <FiLink />,
-      features: ["Secure JWT Auth", "Payment Gateways", "Third-party APIs"],
-      color: "rose"
-    },
-    {
-      title: "System Architecture & Security",
-      description: "Implementing Role-Based Access Control (RBAC) and high-security standards to ensure business data is protected and private.",
-      icon: <FiShield />,
-      features: ["RBAC Security", "JWT Authentication", "Scalable Design"],
-      color: "cyan"
-    }
-  ];
+const services = [
+  {
+    title: "Custom ERP & CRM Development",
+    desc: "Building tailored internal systems to manage leads, inventory, and sales workflows.",
+    icon: <LayoutDashboard size={32} />,
+    tags: ["LEAD MANAGEMENT", "INVENTORY TRACKING", "SALES WORKFLOWS"],
+    color: "#935073" 
+  },
+  {
+    title: "Full-Stack Web Applications",
+    desc: "Developing end-to-end web solutions using the MERN stack. Responsive and secure.",
+    icon: <Code2 size={32} />,
+    tags: ["SPA ARCHITECTURE", "STATE MANAGEMENT", "RESPONSIVE UI"],
+    color: "#F6DBC0"
+  },
+  {
+    title: "Database Optimization",
+    desc: "Optimizing complex queries and data structures for real-time aggregation.",
+    icon: <BarChart3 size={32} />,
+    tags: ["60% QUERY SPEEDUP", "DATA MODELING", "REPORTING"],
+    color: "#935073"
+  },
+  {
+    title: "Business Automation",
+    desc: "Automating repetitive tasks like payroll and automated PDF invoice generation.",
+    icon: <Settings2 size={32} />,
+    tags: ["PDF GENERATION", "BULK DATA TOOLS", "PAYROLL ENGINES"],
+    color: "#F6DBC0"
+  },
+  {
+    title: "API Development",
+    desc: "Architecting secure RESTful APIs and integrating third-party payment services.",
+    icon: <Link2 size={32} />,
+    tags: ["SECURE JWT AUTH", "PAYMENT GATEWAYS", "API DESIGN"],
+    color: "#935073"
+  },
+  {
+    title: "System Architecture",
+    desc: "Implementing RBAC and high-security standards for enterprise data privacy.",
+    icon: <ShieldCheck size={32} />,
+    tags: ["RBAC SECURITY", "JWT AUTH", "SCALABLE DESIGN"],
+    color: "#F6DBC0"
+  }
+];
 
+export default function Services() {
   return (
-    <section className="services-section">
+    <section id="services" className="services-section">
       <div className="services-container">
-        
-        {/* Header */}
-        <header className="services-header">
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="services-tag"
-          >
-            Capabilities
-          </motion.div>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="services-title"
-          >
-            Solutions That <span className="text-gradient">Scale Business.</span>
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="services-subtitle"
-          >
-            I help businesses modernize their operations by building custom software that reduces manual work and improves data accuracy.
-          </motion.p>
-        </header>
+        <motion.div 
+           initial={{ opacity: 0, y: -20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           className="services-header"
+        >
+           <h2 className="section-title">My Services</h2>
+           <p className="section-subtitle">Premium solutions for modern enterprises</p>
+        </motion.div>
 
-        {/* Services Grid */}
         <div className="services-grid">
           {services.map((service, index) => (
             <motion.div 
-              key={index} 
-              initial={{ opacity: 0, y: 20 }}
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.1, type: "spring", stiffness: 100 }}
               whileHover={{ y: -10 }}
-              className="service-card"
+              className="service-card-modern"
             >
-              <div className={`service-icon-box ${service.color}`}>
-                {service.icon}
-              </div>
+              {/* Background Glow Effect */}
+              <div className="card-glow" style={{ background: `radial-gradient(circle at top right, ${service.color}30, transparent)` }}></div>
+              
+              <div className="card-content">
+                <div className="icon-box" style={{ color: service.color }}>
+                  {service.icon}
+                </div>
+                
+                <h3 className="card-title-modern">{service.title}</h3>
+                <p className="card-desc-modern">{service.desc}</p>
 
-              <h3 className="service-card-title">{service.title}</h3>
-              <p className="service-card-desc">{service.description}</p>
-
-              <div className="service-features">
-                {service.features.map((feature, i) => (
-                  <span key={i} className="feature-pill">{feature}</span>
-                ))}
+                {/* Tags revealed on hover */}
+                <div className="reveal-content">
+                    <div className="tag-line"></div>
+                    <div className="card-tags">
+                        {service.tags.map(tag => (
+                            <span key={tag} className="tag-pill">#{tag}</span>
+                        ))}
+                    </div>
+                    <div className="learn-more-btn" style={{ color: service.color }}>
+                        Learn More <ArrowRight size={16} />
+                    </div>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
-
-        {/* CTA Banner */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="cta-banner"
-        >
-          <div className="cta-content">
-            <h3 className="cta-title">Ready to automate your workflow?</h3>
-            <p className="cta-text">Let's build a solution tailored specifically to your business needs.</p>
-          </div>
-          <a href="#contact" className="cta-button">
-            Start a Project <FiArrowRight />
-          </a>
-        </motion.div>
-
       </div>
     </section>
   );
-};
-
-export default Services;
+}

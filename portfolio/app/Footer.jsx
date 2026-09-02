@@ -1,96 +1,98 @@
 'use client';
-import React from 'react';
-import { FiMail, FiPhone, FiMapPin, FiGithub, FiLinkedin, FiTwitter, FiArrowUp } from 'react-icons/fi';
+import { motion } from 'framer-motion';
+import { GiThunderBlade } from 'react-icons/gi';
+import { LiaLinkedin } from 'react-icons/lia';
+import { BsTwitter, BsGlobe2, BsShieldLockFill } from 'react-icons/bs';
 import './Footer.css';
+import { FaGithubSquare, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
+export default function Footer() {
+  
+  // 1. Same scroll function as your Header
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 80; 
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
   };
 
   return (
     <footer className="footer">
-      <div className="footer-container">
-        
-        {/* Top Section: Branding and Links */}
-        <div className="footer-main">
-          
-          {/* Column 1: Brand & Bio */}
-          <div className="footer-col brand-col">
-            <h2 className="footer-logo">
-              DHARSAN<span>.S</span>
-            </h2>
-            <p className="footer-bio">
-              Architecting high-performance enterprise systems and 
-              data-driven applications with the MERN stack.
-            </p>
-            <div className="footer-socials">
-              <a href="#" className="social-icon"><FiGithub /></a>
-              <a href="#" className="social-icon"><FiLinkedin /></a>
-              <a href="#" className="social-icon"><FiTwitter /></a>
-            </div>
-          </div>
+      <div className="footer-blend"></div>
 
-          {/* Column 2: Navigation */}
-          <div className="footer-col links-col">
-            <h4 className="footer-label">Navigation</h4>
-            <ul className="footer-links">
-              <li><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#skills">Expertise</a></li>
-              <li><a href="#projects">Work</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>
-
-          {/* Column 3: Contact */}
-          <div className="footer-col contact-col">
-            <h4 className="footer-label">Get In Touch</h4>
-            <div className="footer-contact-items">
-              <div className="contact-item">
-                <FiMapPin className="item-icon" />
-                <span>Coimbatore, TN, India</span>
-              </div>
-              <div className="contact-item">
-                <FiMail className="item-icon" />
-                <a href="mailto:dharsansand@gmail.com">dharsansand@gmail.com</a>
-              </div>
-              <div className="contact-item">
-                <FiPhone className="item-icon" />
-                <span>+91 9384428585</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Section: Credits and Tech */}
-        <div className="footer-bottom">
-          <div className="bottom-left">
-            <p>&copy; {currentYear} Dharsan S. Crafted with precision.</p>
-          </div>
-
-          <div className="bottom-center">
-            <div className="tech-pills">
-              <span>Next.js</span>
-              <span className="dot">•</span>
-              <span>Tailwind</span>
-              <span className="dot">•</span>
-              <span>Framer</span>
-            </div>
-          </div>
-
-          <button className="scroll-top" onClick={scrollToTop} aria-label="Scroll to top">
-            <FiArrowUp />
-          </button>
-        </div>
+      <div className="footer-scene">
+        <motion.div initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 0.2 }} transition={{ duration: 1 }} className="mountain m-1" />
+        <motion.div initial={{ y: 40, opacity: 0 }} whileInView={{ y: 0, opacity: 0.4 }} transition={{ duration: 1.2 }} className="mountain m-2" />
+        <motion.div initial={{ y: 60, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ duration: 1.4 }} className="mountain m-3" />
       </div>
 
-      {/* Decorative Gradient Line */}
-      <div className="footer-glow-line"></div>
+      <div className="footer-main">
+        <motion.div 
+          className="footer-grid"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {/* Identity */}
+          <motion.div className="footer-col" variants={itemVariants}>
+            <h3 className="footer-logo">DHARSAN.</h3>
+            <p className="footer-bio">
+              Crafting high-performance digital solutions with a focus on 
+              enterprise scalability and elegant user experiences.
+            </p>
+          </motion.div>
+
+          {/* Quick Links - UPDATED TO USE scrollToSection */}
+          <motion.div className="footer-col" variants={itemVariants}>
+            <span className="footer-heading">EXPLORE</span>
+            <ul className="footer-links">
+              <li><button onClick={() => scrollToSection('home')}>Home</button></li>
+              <li><button onClick={() => scrollToSection('about')}>About Me</button></li>
+              <li><button onClick={() => scrollToSection('projects')}>project</button></li>
+              <li><button onClick={() => scrollToSection('services')}>Services</button></li>
+              <li><button onClick={() => scrollToSection('contact')}>Contact</button></li>
+
+            </ul>
+          </motion.div>
+
+          {/* Socials */}
+          <motion.div className="footer-col" variants={itemVariants}>
+            <span className="footer-heading">SOCIALS</span>
+            <ul className="footer-links">
+              <li><a href="https://github.com/dharsansand" target="_blank" rel="noreferrer"><FaGithubSquare  /> GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/dharsan-s-b7741a252?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer"><FaLinkedin  /> LinkedIn</a></li>
+              <li><a href="https://www.instagram.com/dharsan._.27?igsi=MWlkdzJqYTMwMjM0cg==" target="_blank" rel="noreferrer"><FaInstagram /> Instagram</a></li>
+            </ul>
+          </motion.div>
+        </motion.div>
+
+        <div className="footer-bottom">
+          <div className="copyright">
+            © {new Date().getFullYear()} DHARSAN. Built with passion for technology.
+          </div>
+        </div>
+      </div>
     </footer>
   );
-};
-
-export default Footer;
+}
