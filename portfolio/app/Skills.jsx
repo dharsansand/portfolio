@@ -1,43 +1,139 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Code2, Database, Terminal, Globe, Settings, 
-  Layers, Cpu, ShieldCheck, Box, Workflow, CheckCircle2 
-} from 'lucide-react';
+
 import './Skills.css';
+import { FaDatabase, FaGithub, FaNode, FaReact, FaRegCheckCircle } from 'react-icons/fa';
+import { RiNextjsFill, RiSecurePaymentLine, RiVercelFill } from 'react-icons/ri';
+import { TbBrandRedux } from 'react-icons/tb';
+import { IoLogoJavascript } from 'react-icons/io';
+import { SiExpressdotcom, SiMongodb, SiMysql, SiPostman, SiPuppeteer, SiTailwindcss } from 'react-icons/si';
+import { GiElectricalSocket, GiMaterialsScience } from 'react-icons/gi';
+import { DiRedis } from 'react-icons/di';
+import { GrDomain, GrSecure } from 'react-icons/gr';
+import { BsDatabaseUp } from 'react-icons/bs';
 
 const skillsData = {
   "Frontend": [
-    { name: "React.js", icon: <Code2 />, points: ["Hooks & Custom Logic", "Virtual DOM Optimization", "Component Architecture", "State Management (Context)"] },
-    { name: "Next.js", icon: <Globe />, points: ["Server Side Rendering", "App Router & Routing", "SEO Optimization", "API Routes"] },
-    { name: "JavaScript (ES6+)", icon: <Terminal />, points: ["Async/Await & Promises", "ES6+ Modern Syntax", "DOM Manipulation", "Functional Programming"] },
-    { name: "Redux Toolkit", icon: <Layers />, points: ["Global State Management", "RTK Query Integration", "Slices & Reducers", "Middleware Setup"] },
-    { name: "Tailwind CSS", icon: <Box />, points: ["Responsive Design", "Utility-First Styling", "Custom Configurations", "Animation Layouts"] },
-    { name: "Material UI", icon: <Box />, points: ["Theming & Customization", "Component Library", "Grid Layout System", "Responsive UI Elements"] },
+    { 
+      name: "React.js", 
+      icon: <FaReact  />, 
+      points: ["Component Architecture", "Hooks & Custom Logic", "Context API State Flow", "Virtual DOM Optimization"] 
+    },
+    { 
+      name: "Next.js", 
+      icon: <RiNextjsFill  />, 
+      points: ["Server-Side Rendering (SSR)", "App Router & Dynamic Routing", "API Routes Integration", "SEO Optimization"] 
+    },
+    { 
+      name: "Redux Toolkit (RTK)", 
+      icon: <TbBrandRedux  />, 
+      points: ["Global State Management", "RTK Query Data Caching", "Optimistic UI Updates", "Slices & Middleware"] 
+    },
+    { 
+      name: "JavaScript (ES6+)", 
+      icon: <IoLogoJavascript  />, 
+      points: ["Async/Await & Promises", "ES6+ Modern Syntax", "Event-Driven Logic", "Functional Programming"] 
+    },
+    { 
+      name: "Tailwind CSS", 
+      icon: <SiTailwindcss  />, 
+      points: ["Responsive UI Design", "Utility-First Styling", "Custom Config & Themes", "Modern Layout Systems"] 
+    },
+    { 
+      name: "Material UI", 
+      icon: <GiMaterialsScience  />, 
+      points: ["Theme Customization", "Design System Components", "Responsive Grid Layouts", "Accessible UI Elements"] 
+    },
   ],
+
   "Backend": [
-    { name: "Node.js", icon: <Cpu />, points: ["Event Loop & Perf", "File System API", "NPM Ecosystem", "Environment Config"] },
-    { name: "Express.js", icon: <Terminal />, points: ["Middleware Design", "REST API Development", "Error Handling", "Authentication"] },
-    { name: "RESTful APIs", icon: <Settings />, points: ["Endpoint Security", "CRUD Operations", "Status Codes", "Data Transformation"] },
-    { name: "Socket.io", icon: <Workflow />, points: ["Real-time Messaging", "Event Handling", "Binary Streaming", "Room Management"] },
-    { name: "Puppeteer", icon: <Code2 />, points: ["Headless Browsing", "Web Scraping", "PDF Generation", "Automated Testing"] },
-    { name: "Redis", icon: <Database />, points: ["Caching Strategy", "Pub/Sub Logic", "Session Storage", "Key-Value Design"] },
+    { 
+      name: "Node.js", 
+      icon: <FaNode  />, 
+      points: ["Event Loop & Async I/O", "Performance Architecture", "File Stream & Processing", "NPM Ecosystem"] 
+    },
+    { 
+      name: "Express.js", 
+      icon: <SiExpressdotcom />, 
+      points: ["RESTful API Architecture", "Custom Middleware Design", "Centralized Error Handling", "Route Protection"] 
+    },
+    { 
+      name: "RESTful APIs", 
+      icon: <FaDatabase  />, 
+      points: ["CRUD & Business Logic", "Secure Endpoint Design", "Standardized HTTP Responses", "Data Validation"] 
+    },
+    { 
+      name: "Puppeteer", 
+      icon: <SiPuppeteer  />, 
+      points: ["Automated PDF Generation", "Payslip Engine Automation", "Headless Browsing", "Report Compilation"] 
+    },
+    { 
+      name: "Socket.io", 
+      icon: <GiElectricalSocket  />, 
+      points: ["Real-time Data Sync", "Bi-directional Events", "Room Management", "Live Notifications"] 
+    },
+    { 
+      name: "Redis", 
+      icon: <DiRedis  />, 
+      points: ["In-Memory Caching", "Session Management", "Performance Optimization", "Key-Value Strategy"] 
+    },
   ],
+
   "Database": [
-    { name: "MongoDB", icon: <Database />, points: ["Mongoose Modeling", "Aggregation Pipeline", "NoSQL Schema Design", "Index Optimization"] },
-    { name: "MySQL", icon: <Database />, points: ["Relational Mapping", "Query Optimization", "Stored Procedures", "Join Operations"] },
+    { 
+      name: "MongoDB (Mongoose)", 
+      icon: <SiMongodb  />, 
+      points: ["Complex Aggregation Pipelines", "Schema Design & Modeling", "Query Optimization (60% Faster)", "Indexing Strategies"] 
+    },
+    { 
+      name: "MySQL", 
+      icon: <SiMysql  />, 
+      points: ["Relational Data Modeling", "Complex JOIN Operations", "Query Optimization", "Data Integrity & Keys"] 
+    },
   ],
+
   "Tools & DevOps": [
-    { name: "Git/GitHub", icon: <Terminal />, points: ["Version Control", "Branching Workflows", "Pull Request Reviews", "Actions CI/CD"] },
-    { name: "Postman", icon: <Settings />, points: ["API Documentation", "Environment Vars", "Automated Testing", "Mock Servers"] },
+    { 
+      name: "Git & GitHub", 
+      icon: <FaGithub  />, 
+      points: ["Version Control & Branching", "Agile Pull Request Reviews", "Merge Conflict Resolution", "CI/CD Workflows"] 
+    },
+    { 
+      name: "Postman", 
+      icon: <SiPostman  />, 
+      points: ["API Testing & Debugging", "Environment Variables", "Collection Documentation", "Endpoint Mocking"] 
+    },
+    { 
+      name: "JWT & Security", 
+      icon: <GrSecure   />, 
+      points: ["Token-Based Auth", "Refresh Token Flow", "Password Hashing (Bcrypt)", "Protected Routes"] 
+    },
+    { 
+      name: "Vercel & Cloud", 
+      icon: <RiVercelFill  />, 
+      points: ["Continuous Deployment (CI/CD)", "Environment Configuration", "Production Monitoring", "Edge Hosting"] 
+    },
   ],
-  "Domain": [
-    { name: "ERP/CRM Systems", icon: <Layers />, points: ["Business Logic", "Enterprise Workflows", "Data Management", "Process Automation"] },
-    { name: "RBAC", icon: <ShieldCheck />, points: ["Permission Logic", "User Roles", "Security Middleware", "Access Control"] },
+
+  "Domain & Architecture": [
+    { 
+      name: "ERP / CRM / HRM Systems", 
+      icon: <GrDomain  />, 
+      points: ["Lead Management Pipelines", "Sales & Dynamic Pricing", "Inventory Stock Ledgers", "Automated Payroll Flow"] 
+    },
+    { 
+      name: "RBAC & Authorization", 
+      icon: <RiSecurePaymentLine   />, 
+      points: ["Role-Based Access Control", "Granular User Permissions", "Security Middleware", "Access Auditing"] 
+    },
+    { 
+      name: "Data Migration & ETL", 
+      icon: <BsDatabaseUp  />, 
+      points: ["Bulk Excel Processing", "High-Volume Data Parsing (10k+)", "Data Sanitization", "Automated Imports"] 
+    },
   ]
 };
-
 export default function Skills() {
   const [activeTab, setActiveTab] = useState("Frontend");
   // Default selected skill is the first one in Frontend (React.js)
@@ -119,7 +215,7 @@ export default function Skills() {
                     transition={{ delay: i * 0.1 }}
                     className="point-item"
                   >
-                    <CheckCircle2 className="point-icon" size={18} />
+                    <FaRegCheckCircle  className="point-icon" size={18} />
                     <span>{point}</span>
                     <div className="point-line"></div>
                   </motion.div>

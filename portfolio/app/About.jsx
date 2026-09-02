@@ -7,22 +7,53 @@ import { FiBriefcase, FiCpu, FiDatabase, FiHeadphones } from 'react-icons/fi';
 const About = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  const skills = [
-    { name: "React.js Development", desc: "Designing seamless data flows between frontend and backend" },
-    { name: "Context API", desc: "Designing seamless data flows between frontend and backend" },
-    { name: "RESTful API Integration", desc: "Designing seamless data flows between frontend and backend." },
-    { name: "Redux Toolkit (RTK Query)", desc: "Advanced state management and automated data fetching/caching." }
-  ];
+const skills = [
+  { 
+    name: "React.js & Next.js", 
+    desc: "Building dynamic, responsive UIs with modern component architecture and clean state management." 
+  },
+  { 
+    name: "Redux Toolkit (RTK Query)", 
+    desc: "Advanced global state management, automated data caching, and seamless API synchronization." 
+  },
+  { 
+    name: "Node.js & Express REST APIs", 
+    desc: "Architecting secure RESTful endpoints, JWT authentication, RBAC, and business logic automation." 
+  },
+  { 
+    name: "MongoDB & Query Optimization", 
+    desc: "Designing complex aggregation pipelines and indexing to boost database performance by up to 60%." 
+  }
+];
 
 
 
 const stats = [
-  { value: "15+", label: "Projects", icon: <FiBriefcase />, detail: "Successfully Delivered" },
-  { value: "10+", label: "Technologies", icon: <FiCpu />, detail: "Modern Stack" },
-  { value: "100+", label: "API Query", icon: <FiDatabase />, detail: "Data Optimization" },
-  { value: "24+", label: "Support", icon: <FiHeadphones />, detail: "Technical Assistance" },
+  { 
+    value: "1+", 
+    label: "Years Experience", 
+    icon: <FiBriefcase />, 
+    detail: "ERP, CRM & Full-Stack MERN" 
+  },
+  { 
+    value: "60%", 
+    label: "Query Optimization", 
+    icon: <FiDatabase />, 
+    detail: "Faster Database Latency" 
+  },
+  { 
+    value: "1K+", 
+    label: "Records Processed", 
+    icon: <FiCpu />, 
+    detail: "Bulk Migration under 5s" 
+  },
+  { 
+    value: "100%", 
+    label: "Sprint Delivery", 
+    icon: <FiHeadphones />, 
+    detail: "Agile & On-Time Execution" 
+  },
 ];
-
   return (
     <section id="about" className="about-section">
       <div className="container">
@@ -38,7 +69,7 @@ const stats = [
             <div className="image-frame">
               <div className="image-overlay"></div>
               <img 
-                src="https://as1.ftcdn.net/jpg/08/98/22/00/1000_F_898220026_YpEtXl3GCaJM39rPLux8t0acxy3wpsQN.webp" 
+                src="https://res.cloudinary.com/dujuxbpv3/image/upload/v1788345729/9c02cc00-05c0-4b86-8986-45c0f3b774b8_txql5a.png" 
                 alt="Dharsan S" 
               />
             </div>
@@ -69,9 +100,7 @@ const stats = [
               transition={{ delay: 0.3 }}
               className="about-description"
             >
-              My name is <strong>Dharsan S</strong>. I am a dedicated Full Stack Developer 
-              passionate about engineering scalable business logic into high-performance 
-              software architecture.
+              My name is <strong>Dharsan S</strong>.I am a <strong>Full Stack (MERN) Developer</strong>  specializing in architecting scalable enterprise systems (ERP, CRM, HRM) and high-performance web applications.
             </motion.p>
 
          

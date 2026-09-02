@@ -1,7 +1,12 @@
 'use client';
 import { motion } from 'framer-motion';
-// import { ExternalLink, Github, Shield, Zap, BarChart3 } from 'lucide-react';
+
 import './Projects.css';
+
+
+import { MdImportExport, MdLeaderboard, MdOutlineDataUsage, MdOutlinePayment, MdOutlineQueryStats, MdSecurity } from 'react-icons/md';
+import { FaUserLock } from 'react-icons/fa';
+import { GrUserAdmin } from 'react-icons/gr';
 
 const projects = [
   {
@@ -9,28 +14,30 @@ const projects = [
     category: "ENTERPRISE",
     title: "Integrated Business Suite",
     subtitle: "ERP • CRM • HRM",
-    description: "A high-performance ecosystem designed to automate complex business workflows. Focused on data integrity and process speed.",
+    description: "An end-to-end enterprise solution automating lead management, real-time inventory ledgers, and automated payroll with dynamic PDF generation.",
     metrics: [
-      //  { label: "Efficiency", value: "70%", icon: <Zap size={14}/> },
-      //  { label: "Speed", value: "60%", icon: <BarChart3 size={14}/> },
-      //  { label: "Security", value: "RBAC", icon: <Shield size={14}/> }
+      { label: "Lead Efficiency", value: "+70%", icon: <MdLeaderboard  size={14} /> },
+      { label: "Query Speed", value: "60% Faster", icon: <MdOutlineQueryStats  size={14} /> },
+      { label: "Bulk Migration", value: "10K+ in 5s", icon: <MdImportExport  size={14} /> },
+      { label: "Security", value: "RBAC & JWT", icon: <FaUserLock  size={14} /> }
     ],
-    tech: ["React", "Node.js", "MongoDB"],
+    tech: ["React", "Node.js", "Express.js", "MongoDB", "Puppeteer","Redis"],
     color: "#935073" 
   },
   {
     id: "02",
-    category: "COMMERCE",
-    title: "Dynamic E-commerce",
-    subtitle: "CMS • PAYMENTS",
-    description: "Scalable retail platform with a zero-code admin panel and high-security payment integrations.",
+    category: "COMMERCE & CMS",
+    title: "Dynamic E-commerce Platform",
+    subtitle: "CMS • PAYMENTS • CART",
+    description: "A responsive commerce platform featuring a zero-code dynamic admin CMS panel, persistent cart state, and secure Razorpay payment gateway integration.",
     metrics: [
-      //  { label: "Setup", value: "0-Code", icon: <Zap size={14}/> },
-      //  { label: "Uptime", value: "99.9%", icon: <BarChart3 size={14}/> },
-      //  { label: "Auth", value: "JWT", icon: <Shield size={14}/> }
+      { label: "Admin Panel", value: "Zero-Code", icon: <GrUserAdmin  size={14} /> },
+      { label: "Payment Gateway", value: "Razorpay", icon: <MdOutlinePayment  size={14} /> },
+      { label: "State Engine", value: "RTK Query", icon: <MdOutlineDataUsage  size={14} /> },
+      { label: "Auth Flow", value: "JWT Secure", icon: <MdSecurity  size={14} /> }
     ],
-    tech: ["Next.js", "MySQL", "Tailwind"],
-    color: "#F6DBC0" 
+    tech: ["React", "Node.js", "Express.js", "Redux Toolkit", "Razorpay", "Tailwind CSS"],
+    color: "#2C3E50" 
   }
 ];
 

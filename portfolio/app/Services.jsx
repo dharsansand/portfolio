@@ -6,51 +6,51 @@ import {
 } from 'lucide-react';
 import './Services.css';
 
+
 const services = [
   {
     title: "Custom ERP & CRM Development",
-    desc: "Building tailored internal systems to manage leads, inventory, and sales workflows.",
+    desc: "Building tailored enterprise systems to streamline lead management, real-time inventory ledgers, and sales pipelines.",
     icon: <LayoutDashboard size={32} />,
-    tags: ["LEAD MANAGEMENT", "INVENTORY TRACKING", "SALES WORKFLOWS"],
+    tags: ["LEAD PIPELINES", "INVENTORY LEDGER", "SALES WORKFLOWS"],
     color: "#935073" 
   },
   {
     title: "Full-Stack Web Applications",
-    desc: "Developing end-to-end web solutions using the MERN stack. Responsive and secure.",
+    desc: "Engineering scalable, end-to-end web applications with the MERN stack, focused on responsive design and performance.",
     icon: <Code2 size={32} />,
-    tags: ["SPA ARCHITECTURE", "STATE MANAGEMENT", "RESPONSIVE UI"],
+    tags: ["MERN STACK", "RTK QUERY", "RESPONSIVE UI"],
     color: "#F6DBC0"
   },
   {
     title: "Database Optimization",
-    desc: "Optimizing complex queries and data structures for real-time aggregation.",
+    desc: "Designing MongoDB aggregation pipelines and indexing strategies to process 100K+ records with minimal latency.",
     icon: <BarChart3 size={32} />,
-    tags: ["60% QUERY SPEEDUP", "DATA MODELING", "REPORTING"],
+    tags: ["60% SPEEDUP", "AGGREGATION PIPELINES", "DATA MODELING"],
     color: "#935073"
   },
   {
-    title: "Business Automation",
-    desc: "Automating repetitive tasks like payroll and automated PDF invoice generation.",
+    title: "Business Process Automation",
+    desc: "Automating repetitive business operations, including Puppeteer-based PDF payslips and high-speed Excel data migrations.",
     icon: <Settings2 size={32} />,
-    tags: ["PDF GENERATION", "BULK DATA TOOLS", "PAYROLL ENGINES"],
+    tags: ["PDF GENERATION", "BULK EXCEL (10K+)", "PAYROLL ENGINES"],
     color: "#F6DBC0"
   },
   {
-    title: "API Development",
-    desc: "Architecting secure RESTful APIs and integrating third-party payment services.",
+    title: "RESTful API & Payment Integration",
+    desc: "Architecting secure backend endpoints with Node.js/Express and integrating third-party services like Razorpay.",
     icon: <Link2 size={32} />,
-    tags: ["SECURE JWT AUTH", "PAYMENT GATEWAYS", "API DESIGN"],
+    tags: ["RESTful ARCHITECTURE", "RAZORPAY API", "DATA VALIDATION"],
     color: "#935073"
   },
   {
-    title: "System Architecture",
-    desc: "Implementing RBAC and high-security standards for enterprise data privacy.",
+    title: "Enterprise Security & RBAC",
+    desc: "Implementing multi-tier Role-Based Access Control (RBAC), JWT authentication, and protected route middleware.",
     icon: <ShieldCheck size={32} />,
-    tags: ["RBAC SECURITY", "JWT AUTH", "SCALABLE DESIGN"],
+    tags: ["RBAC PERMISSIONS", "JWT AUTHENTICATION", "DATA PRIVACY"],
     color: "#F6DBC0"
   }
 ];
-
 export default function Services() {
   return (
     <section id="services" className="services-section">

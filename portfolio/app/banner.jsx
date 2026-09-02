@@ -128,9 +128,16 @@ export default function Banner() {
             <button className="hire-btn" onClick={() => scrollToSection("Contact")}>
               HIRE ME <FiArrowUpRight />
             </button>
-            <button className="resume-btn">
-              <FiDownload /> RESUME
-            </button>
+           <a 
+    href="https://drive.google.com/file/d/1s08EW2kHdc3txzOzRCHNuUg-xNfLmD0A/view?usp=sharing" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    style={{ textDecoration: 'none' }}
+  >
+    <button className="resume-btn">
+      <FiDownload /> RESUME
+    </button>
+  </a>
           </div>
         </motion.div>
       </main>
