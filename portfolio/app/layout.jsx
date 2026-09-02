@@ -35,6 +35,9 @@ export const metadata = {
     title: "Dharsan Portfolio",
     description: "MERN Stack Developer Portfolio",
   },
+   verification: {
+    google:"K1vqH0sok45NvgA_Kv251M7vpPmHeC_M7r1aSIMazrY", 
+  },
   icons: {
     icon: "/favicon.ico", 
     shortcut: "/favicon.ico",
