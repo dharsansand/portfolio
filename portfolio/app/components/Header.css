@@ -107,3 +107,21 @@
     font-size: 0.75rem;
   }
 }
+
+
+@media (max-width: 500px) {
+  .nav-bar {
+        background: #0f0f0fcc;
+        border: 1px solid #ffffff1a;
+        justify-content: space-around;
+        width: 94%;
+        max-width: 499px;
+        padding: 19px;
+        position: fixed;
+        bottom: 54px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+
+ }
