@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 5%;
+  padding: 24px 5%;
   position: fixed;
   top: 0;
   left: 0;
@@ -19,109 +19,127 @@
   letter-spacing: -1.5px;
 }
 
+/* Nav Bar Pill Container */
 .nav-bar {
   display: flex;
-  background: rgba(0, 0, 0, 0.4); /* Dark pill container */
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
   padding: 6px;
   border-radius: 100px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
 }
 
 .nav-button {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   border: none;
   background: none;
-  padding: 10px 24px;
+  padding: 10px 22px;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.4); /* Dimmed inactive text */
-  transition: color 0.4s ease;
+  color: rgba(255, 255, 255, 0.45);
+  transition: color 0.3s ease, transform 0.2s ease;
   font-weight: 600;
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   outline: none;
+  z-index: 1;
 }
 
-/* Active text becomes pure white and glows slightly */
+/* Desktop: Show text, hide icons */
+.nav-icon {
+  display: none;
+}
+
+.nav-label {
+  display: inline-block;
+}
+
+/* Active text glow */
 .nav-button.active {
   color: #ffffff;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
 }
 
-/* THE LIGHT EFFECT (The Pill) */
+/* Animated Light Pill Effect */
 .nav-pill {
   position: absolute;
-  inset: 5px; 
-  background: white; 
+  inset: 4px;
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 100px;
   z-index: -1;
-
-  filter: blur(15px); 
-  opacity: 0.6;
-  box-shadow: 0 0 25px 5px rgba(255, 255, 255, 0.3);
+  filter: blur(8px);
+  box-shadow: 0 0 20px 4px rgba(255, 255, 255, 0.25);
 }
 
 .header-hire-btn {
-  padding: 10px 25px;
+  padding: 10px 24px;
   background: #fff;
   color: #000;
   border-radius: 50px;
   font-weight: 700;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease; /* Ensure 'all' is here for smooth transition */
+  transition: all 0.3s ease;
 }
 
 .header-hire-btn:hover {
-  transform: translateY(-3px); /* Lifts the button up */
+  transform: translateY(-3px);
   background: #ffffff;
-  /* Adds a soft white glow around the button */
   box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2), 
               0 0 15px rgba(255, 255, 255, 0.4); 
 }
 
-.header-hire-btn:active {
-  transform: translateY(-1px); /* Moves down slightly when clicked */
-}
-
-/* --- MOBILE BOTTOM NAV STYLE --- */
+/* =========================================
+   MOBILE RESPONSIVE (BOTTOM DOCK WITH ICONS)
+   ========================================= */
 @media (max-width: 768px) {
+  .header {
+    padding: 16px 20px;
+  }
+
+  /* Fixed Floating Bottom Navigation Dock */
   .nav-bar {
     position: fixed;
-    bottom: 30px;
+    bottom: 24px;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-    max-width: 450px;
-    justify-content: space-around;
-    padding: 10px;
-    background: rgba(15, 15, 15, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 390px;
+    height: 60px;
+    justify-content: space-between;
+    padding: 6px 12px;
+    background: rgba(15, 15, 15, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 40px;
+    z-index: 1000;
+  }
+
+  /* Mobile: Show icons, hide text */
+  .nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-label {
+    display: none;
   }
 
   .nav-button {
-    padding: 12px 0;
+    padding: 12px;
     flex: 1;
-    font-size: 0.75rem;
+    border-radius: 50%;
+  }
+
+  .nav-pill {
+    inset: 6px;
+    filter: blur(5px);
   }
 }
-
-
-@media (max-width: 500px) {
-  .nav-bar {
-        background: #0f0f0fcc;
-        border: 1px solid #ffffff1a;
-        justify-content: space-around;
-        width: 94%;
-        max-width: 499px;
-        padding: 19px;
-        position: fixed;
-        bottom: 54px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-
- }
