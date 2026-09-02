@@ -166,23 +166,63 @@ a, button {
 /* --- SCROLL INDICATOR --- */
 .scroll-box {
   position: absolute;
-  bottom: 30px;
+  bottom: 10px; /* Slightly higher for better visibility */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-size: 0.7rem;
-  letter-spacing: 3px;
-  color: rgba(248, 244, 233, 0.3);
+  letter-spacing: 4px; /* Increased spacing for premium look */
+  color: rgba(248, 244, 233, 0.4); /* vd-cream with opacity */
+  z-index: 10;
 }
 
 .mouse-wheel {
-  width: 20px;
-  height: 35px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  width: 24px;
+  height: 40px;
+  border: 2px solid rgba(248, 244, 233, 0.2);
   border-radius: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* The moving dot animation */
+.wheel-dot {
+  width: 4px;
+  height: 8px;
+  background-color: #935073; /* Your theme color (vd-mid) */
+  border-radius: 2px;
+  margin-top: 4px;
+  animation: scroll-anim 2s infinite;
+}
+
+@keyframes scroll-anim {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+}
+
+/* Subtle hover effect on the text */
+.scroll-box span {
+  transition: color 0.3s ease;
+}
+
+.scroll-box:hover span {
+  color: rgba(248, 244, 233, 0.8);
 }
 
 /* --- ENHANCED MOBILE VIEW --- */

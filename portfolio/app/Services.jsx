@@ -94,9 +94,7 @@ export default function Services() {
                             <span key={tag} className="tag-pill">#{tag}</span>
                         ))}
                     </div>
-                    <div className="learn-more-btn" style={{ color: service.color }}>
-                        Learn More <ArrowRight size={16} />
-                    </div>
+                   
                 </div>
               </div>
             </motion.div>

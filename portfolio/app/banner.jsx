@@ -128,24 +128,32 @@ export default function Banner() {
             <button className="hire-btn" onClick={() => scrollToSection("Contact")}>
               HIRE ME <FiArrowUpRight />
             </button>
-           <a 
-    href="https://drive.google.com/file/d/1s08EW2kHdc3txzOzRCHNuUg-xNfLmD0A/view?usp=sharing" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    style={{ textDecoration: 'none' }}
-  >
-    <button className="resume-btn">
-      <FiDownload /> RESUME
-    </button>
-  </a>
+         <a 
+  href="https://drive.google.com/uc?export=download&id=1s08EW2kHdc3txzOzRCHNuUg-xNfLmD0A" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  download="Dharsan_Resume.pdf" 
+  style={{ textDecoration: 'none' }}
+>
+  <button className="resume-btn">
+    <FiDownload /> RESUME
+  </button>
+</a>
           </div>
         </motion.div>
       </main>
 
-      <div className="scroll-box">
-        <div className="mouse-wheel"></div>
-        <span>SCROLL DOWN</span>
-      </div>
+ <motion.div 
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1, y: [0, 10, 0] }}
+  transition={{ duration: 2, repeat: Infinity }}
+  className="scroll-box"
+>
+  <div className="mouse-wheel">
+    <div className="wheel-dot"></div>
+  </div>
+  <span>SCROLL DOWN</span>
+</motion.div>
     </div>
   );
 }

@@ -4,17 +4,27 @@
     position: relative;
     overflow: hidden;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Changed to column to stack header and grid */
     align-items: center;
 }
 
-/* Background "CONTACT" Watermark */
+/* NEW: Style for the centered header */
+.contact-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+
 .contact-watermark {
     position: absolute;
     font-size: clamp(6rem, 15vw, 12rem);
     font-weight: 900;
     color: transparent;
-    -webkit-text-stroke: 1.5px rgba(147, 80, 115, 0.05); /* vd-mid with low opacity */
+    -webkit-text-stroke: 1.5px rgba(147, 80, 115, 0.05);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -27,39 +37,41 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    gap: 40px; /* Reduced gap since title is gone */
     position: relative;
     z-index: 2;
 }
 
-/* Left Side Content */
 .contact-tag {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.03); /* updated to look like your glass bg */
+    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 6px 14px;
     border-radius: 20px;
-    color: var(--vd-cream);
+    color: #f8f4e9; /* vd-cream */
     font-size: 0.8rem;
     margin-bottom: 20px;
 }
 
 .contact-title {
     font-size: clamp(2.5rem, 5vw, 3.5rem);
-    color: var(--vd-cream);
+    color: #f8f4e9; /* vd-cream */
     margin-bottom: 20px;
+    font-family: serif; /* Matches your 'My Services' font style */
 }
 
 .contact-desc {
     color: rgba(248, 244, 233, 0.6);
     line-height: 1.7;
-    margin-bottom: 40px;
-    max-width: 450px;
+    margin-bottom: 0; 
+    max-width: 600px; /* Slightly wider for centered text */
+    text-align: center;
 }
 
-/* Info Cards */
+/* ... keep the rest of your existing CSS below ... */
+
 .contact-cards {
     display: flex;
     flex-direction: column;
@@ -69,8 +81,8 @@
 .contact-item-card {
     display: flex;
     align-items: center;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 18px 25px;
     border-radius: 20px;
     text-decoration: none;
@@ -80,77 +92,55 @@
 
 .contact-item-card:hover {
     background: rgba(255, 255, 255, 0.06);
-    border-color: var(--vd-mid);
+    border-color: #935073; /* vd-mid */
     transform: scale(1.02);
 }
 
-.item-icon-box {
-    color: var(--vd-mid);
+/* Info styling */
+.item-icon-box { color: #935073; }
+.item-text { 
+    display: flex; 
+    flex-direction: column; 
+    flex: 1; 
+    gap: 2px; /* Adjust this number (e.g., 0px or 4px) to change the spacing */
 }
 
-.item-text {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+.item-label { 
+    font-size: 0.75rem; 
+    color: rgba(248, 244, 233, 0.5); 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    line-height: 1.2; /* Added to keep text tight */
 }
-
-.item-label {
-    font-size: 0.75rem;
-    color: rgba(248, 244, 233, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.item-value { 
+    color: #f8f4e9; 
+    font-weight: 500; 
+    line-height: 1.2; /* Added to keep text tight */
 }
+.item-arrow { color: rgba(248, 244, 233, 0.3); }
 
-.item-value {
-    color: var(--vd-cream);
-    font-weight: 500;
-}
-
-.item-arrow {
-    color: rgba(248, 244, 233, 0.3);
-}
-
-/* Right Side: Form */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.input-group label {
-    font-size: 0.85rem;
-    color: var(--vd-cream);
-    padding-left: 5px;
-}
-
-.input-group input, 
-.input-group textarea {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+/* Form styling */
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+.input-group { display: flex; flex-direction: column; gap: 8px; }
+.input-group label { font-size: 0.85rem; color: #f8f4e9; padding-left: 5px; }
+.input-group input, .input-group textarea {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     padding: 15px;
-    color: var(--vd-cream);
+    color: #f8f4e9;
     font-size: 1rem;
     outline: none;
     transition: 0.3s;
 }
-
-.input-group input:focus, 
-.input-group textarea:focus {
-    border-color: var(--vd-mid);
+.input-group input:focus, .input-group textarea:focus {
+    border-color: #935073;
     background: rgba(255, 255, 255, 0.05);
 }
 
-/* Submit Button */
 .submit-btn {
-    background: var(--foreground); /* Cream White */
-    color: var(--background); /* Deep Violet */
+    background: #f8f4e9;
+    color: #07030d;
     border: none;
     padding: 18px;
     border-radius: 12px;
@@ -166,17 +156,13 @@
 }
 
 .submit-btn:hover {
-    background: var(--vd-peach);
+    background: #efd3b0; /* vd-peach */
     transform: translateY(-3px);
 }
 
-/* Mobile Responsiveness */
 @media (max-width: 900px) {
     .contact-container {
         grid-template-columns: 1fr;
-        gap: 60px;
-    }
-    .contact-watermark {
-        top: 20%;
+        gap: 40px;
     }
 }
