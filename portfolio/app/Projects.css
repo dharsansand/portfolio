@@ -1,7 +1,15 @@
+:root {
+  --vd-deep: #07030d;
+  --vd-cream: #F8F4E9;
+  --vd-mid: #935073;
+  --vd-peach: #F6DBC0;
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
 .projects-section {
-    padding: 150px 20px;
-    background-color: #07030d; /* Deep Dark Background */
-    overflow: visible; /* Changed from hidden so 01 isn't cut off */
+    padding: 140px 20px;
+    background-color: var(--vd-deep);
+    overflow: visible;
     position: relative;
 }
 
@@ -22,7 +30,7 @@
     font-size: clamp(5rem, 15vw, 10rem);
     font-weight: 900;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(153, 108, 63, 0.486); /* Faint Peach Outline */
+    -webkit-text-stroke: 1px rgba(153, 108, 63, 0.45);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -30,6 +38,7 @@
     letter-spacing: 20px;
     white-space: nowrap;
     z-index: 0;
+    pointer-events: none;
 }
 
 .main-title {
@@ -37,6 +46,7 @@
     color: var(--vd-peach);
     position: relative;
     z-index: 1;
+    font-weight: 800;
 }
 
 /* Project Row & Background Number */
@@ -44,7 +54,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    margin-bottom: 200px;
+    margin-bottom: 180px;
     gap: 40px;
 }
 
@@ -55,20 +65,21 @@
 /* THE 01 / 02 DESIGN */
 .project-number {
     position: absolute;
-    font-size: clamp(10rem, 20vw, 16rem);
+    font-size: clamp(8rem, 18vw, 14rem);
     font-weight: 900;
     color: transparent;
-    -webkit-text-stroke: 1.5px rgba(151, 108, 65, 0.61); /* Visible Peach Outline */
-    top: -100px;
-    left: -60px;
+    -webkit-text-stroke: 1.5px rgba(151, 108, 65, 0.5);
+    top: -90px;
+    left: -50px;
     z-index: 0;
     line-height: 1;
     pointer-events: none;
+    user-select: none;
 }
 
 .project-row:nth-child(even) .project-number {
     left: auto;
-    right: -60px;
+    right: -50px;
 }
 
 /* Main Content Card */
@@ -80,41 +91,43 @@
     padding: 1px;
     z-index: 2;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .glass-inner {
-    background: #0d0a16; /* Slightly lighter than section bg */
-    padding: 50px;
+    background: #0d0a16;
+    padding: 45px;
     border-radius: 39px;
 }
 
 .proj-cat {
     color: var(--vd-mid);
     font-weight: 800;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     font-size: 0.8rem;
     text-transform: uppercase;
 }
 
 .proj-title {
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
     color: var(--vd-cream);
-    margin: 15px 0 5px 0;
+    margin: 12px 0 6px 0;
+    font-weight: 800;
 }
 
 .proj-sub {
     color: var(--vd-peach);
     font-weight: 500;
-    font-size: 1.1rem;
-    margin-bottom: 25px;
+    font-size: 1.05rem;
+    margin-bottom: 20px;
 }
 
 .proj-desc {
-    color: rgba(248, 244, 233, 0.6);
-    line-height: 1.8;
+    color: rgba(248, 244, 233, 0.7);
+    line-height: 1.7;
     max-width: 480px;
-    margin-bottom: 35px;
-    font-size: 1rem;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
 }
 
 /* Floating Metrics Chips */
@@ -129,39 +142,48 @@
 .metric-chip {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border: 1px solid var(--glass-border);
-    padding: 15px 25px;
-    border-radius: 20px;
+    padding: 14px 22px;
+    border-radius: 18px;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 14px;
     width: fit-content;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.metric-chip:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(246, 219, 192, 0.3);
+    transform: translateY(-2px);
 }
 
 .chip-val {
     display: block;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: var(--vd-cream);
+    line-height: 1;
 }
 
 .chip-lab {
     font-size: 0.7rem;
     color: var(--vd-peach);
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* Action Links */
 .proj-links {
     display: flex;
-    gap: 15px;
-    margin-top: 15px;
+    gap: 14px;
+    margin-top: 20px;
 }
 
 .circle-link {
-    width: 54px;
-    height: 54px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     border: 1px solid var(--glass-border);
     display: flex;
@@ -180,35 +202,148 @@
 .circle-link:hover {
     background: var(--vd-peach);
     color: var(--vd-deep);
-    transform: translateY(-5px) rotate(10deg);
+    transform: translateY(-4px) rotate(8deg);
 }
 
 .proj-tags {
     display: flex;
-    gap: 15px;
+    flex-wrap: wrap;
+    gap: 10px 14px;
     color: var(--vd-mid);
     font-family: 'Courier New', Courier, monospace;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 600;
 }
 
-/* Mobile Responsiveness */
+/* =========================================
+   TABLET RESPONSIVENESS (<= 992px)
+   ========================================= */
 @media (max-width: 992px) {
-    .project-row, .project-row:nth-child(even) {
+    .project-row, 
+    .project-row:nth-child(even) {
         flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: 100px;
+        align-items: stretch;
+        margin-bottom: 120px;
+        gap: 25px;
     }
-    .project-number {
-        font-size: 8rem;
-        top: -40px;
-        left: -20px;
+    
+    .project-number,
+    .project-row:nth-child(even) .project-number {
+        font-size: 7.5rem;
+        top: -45px;
+        left: 0px;
+        right: auto;
     }
+
     .metrics-floating-box {
         flex-direction: row;
         flex-wrap: wrap;
+        gap: 12px;
     }
+
     .glass-inner {
-        padding: 30px;
+        padding: 35px 28px;
+    }
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS (<= 500px)
+   ========================================= */
+@media (max-width: 500px) {
+    .projects-section {
+        padding: 80px 14px;
+    }
+
+    .section-header {
+        margin-bottom: 70px;
+    }
+
+    /* Fix outline text overflow */
+    .outline-text {
+        font-size: 3.6rem;
+        letter-spacing: 6px;
+    }
+
+    .main-title {
+        font-size: 2.2rem;
+    }
+
+    .project-row {
+        margin-bottom: 80px;
+        gap: 18px;
+    }
+
+    /* Mobile Number Tag */
+    .project-number,
+    .project-row:nth-child(even) .project-number {
+        font-size: 5rem;
+        top: -32px;
+        left: 8px;
+        -webkit-text-stroke: 1px rgba(151, 108, 65, 0.4);
+    }
+
+    /* Main Box */
+    .project-main-box {
+        border-radius: 26px;
+    }
+
+    .glass-inner {
+        padding: 24px 18px;
+        border-radius: 25px;
+    }
+
+    .proj-cat {
+        font-size: 0.72rem;
+        letter-spacing: 2px;
+    }
+
+    .proj-title {
+        font-size: 1.55rem;
+        margin: 8px 0 4px 0;
+    }
+
+    .proj-sub {
+        font-size: 0.92rem;
+        margin-bottom: 15px;
+    }
+
+    .proj-desc {
+        font-size: 0.88rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .proj-tags {
+        font-size: 0.8rem;
+        gap: 6px 10px;
+    }
+
+    /* 2-Column Clean Grid for Metrics */
+    .metrics-floating-box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .metric-chip {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 14px;
+        gap: 8px;
+        box-sizing: border-box;
+    }
+
+    .chip-val {
+        font-size: 0.95rem;
+    }
+
+    .chip-lab {
+        font-size: 0.62rem;
+    }
+
+    .circle-link {
+        width: 44px;
+        height: 44px;
     }
 }
