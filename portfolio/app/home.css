@@ -167,7 +167,7 @@ a, button {
 .scroll-box {
   position: absolute;
   bottom: 10px; /* Slightly higher for better visibility */
-  left: 50%;
+  left: 45%;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
@@ -258,6 +258,10 @@ a, button {
     line-height: 1;
     margin-bottom: 20px;
   }
+   .scroll-box {
+    left: 195px;
+  }
+  
 
   .subtitle {
     font-size: 0.5em; /* Shrink 'Full Stack Developer' to fit one line */
@@ -302,6 +306,9 @@ a, button {
 @media (max-width: 380px) {
   .name-heading {
     font-size: 2.2rem;
+  }
+  .scroll-box {
+    left: 195px;
   }
   
   .bg-watermark {

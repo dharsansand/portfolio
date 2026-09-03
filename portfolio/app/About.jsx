@@ -1,8 +1,9 @@
 'use client';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiBriefcase, FiCpu, FiDatabase, FiHeadphones } from 'react-icons/fi';
+import { FiArrowRight, FiBriefcase, FiCpu, FiDatabase, FiHeadphones } from 'react-icons/fi';
 import './About.css';
+import Link from 'next/link';
 
 const skills = [
   { 
@@ -54,7 +55,6 @@ const About = () => {
   const [activeSkill, setActiveSkill] = useState(null);
   const [activeStat, setActiveStat] = useState(null);
 
-  // Toggle skill on click (mobile) or hover (desktop)
   const handleSkillToggle = (index) => {
     setActiveSkill(activeSkill === index ? null : index);
   };
@@ -111,7 +111,6 @@ const About = () => {
               My name is <strong>Dharsan S</strong>. I am a <strong>Full Stack (MERN) Developer</strong> specializing in architecting scalable enterprise systems (ERP, CRM, HRM) and high-performance web applications.
             </motion.p>
 
-            {/* Interactive Skills Pills */}
             <div className="skill-badges-container">
               {skills.map((skill, index) => (
                 <div 
@@ -149,7 +148,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* Stats Cards Section (Hover on Desktop, Tap on Mobile) */}
+        {/* Stats Grid */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -157,33 +156,42 @@ const About = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="stats-footer-grid"
         >
-          {stats.map((stat, i) => {
-            const isHovered = activeStat === i;
-
-            return (
-              <motion.div 
-                key={i} 
-                className={`stat-card-v2 ${isHovered ? 'hovered' : ''}`}
-                onMouseEnter={() => setActiveStat(i)}
-                onMouseLeave={() => setActiveStat(null)}
-                onClick={() => setActiveStat(activeStat === i ? null : i)}
-                whileHover={{ y: -5 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <div className="stat-content-wrapper">
-                  <h3 className="stat-value-v2">{stat.value}</h3>
-                  <p className="stat-label-v2">{stat.label}</p>
-                  
-                  {/* Hover/Tap Reveal Section */}
-                  <div className={`stat-hover-info ${isHovered ? 'visible' : ''}`}>
-                    <span className="stat-icon">{stat.icon}</span>
-                    <p className="stat-detail-text">{stat.detail}</p>
-                  </div>
+          {stats.map((stat, i) => (
+            <motion.div 
+              key={i} 
+              className={`stat-card-v2 ${activeStat === i ? 'hovered' : ''}`}
+              onMouseEnter={() => setActiveStat(i)}
+              onMouseLeave={() => setActiveStat(null)}
+              onClick={() => setActiveStat(activeStat === i ? null : i)}
+              whileHover={{ y: -5 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="stat-content-wrapper">
+                <h3 className="stat-value-v2">{stat.value}</h3>
+                <p className="stat-label-v2">{stat.label}</p>
+                <div className={`stat-hover-info ${activeStat === i ? 'visible' : ''}`}>
+                  <span className="stat-icon">{stat.icon}</span>
+                  <p className="stat-detail-text">{stat.detail}</p>
                 </div>
-              </motion.div>
-            );
-          })}
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
+
+        {/* Action Button Container - NOW OUTSIDE THE GRID */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="about-action-container"
+        >
+          <Link href="/about" className="read-more-btn">
+            <span>Read More About Me</span>
+            <FiArrowRight className="arrow-icon" />
+          </Link>
+        </motion.div>
+
       </div>
     </section>
   );

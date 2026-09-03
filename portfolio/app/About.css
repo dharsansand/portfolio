@@ -261,6 +261,34 @@
   letter-spacing: 0.8px;
   margin: 0;
 }
+/* Container to push the button to the right */
+.about-action-container {
+  display: flex;
+  justify-content: flex-end; /* Change to center if you want it in the middle */
+  margin-top: 40px;
+  width: 100%;
+}
+
+/* Fix the button alignment */
+.read-more-btn {
+  display: inline-flex; /* Use inline-flex */
+  align-items: center;  /* Center text and icon vertically */
+  gap: 12px;
+  padding: 14px 32px;
+  background: var(--accent-violet);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(147, 80, 115, 0.4);
+}
+
+/* Ensure button doesn't have weird margins */
+.read-more-btn {
+  margin: 0; 
+}
 
 /* =========================================
    RESPONSIVE BREAKPOINTS
