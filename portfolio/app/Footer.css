@@ -148,6 +148,16 @@
     opacity: 1;
     transform: translateX(8px);
 }
+.footer-links a:visited {
+    color: var(--vd-cream);
+}
+
+/* Active link style */
+.footer-links a.active {
+    color: var(--vd-peach);
+    opacity: 1;
+    font-weight: 600;
+}
 
 /* Responsive */
 @media (max-width: 992px) {

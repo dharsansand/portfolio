@@ -1,14 +1,14 @@
 'use client';
 import { motion } from 'framer-motion';
-import { GiThunderBlade } from 'react-icons/gi';
-import { LiaLinkedin } from 'react-icons/lia';
-import { BsTwitter, BsGlobe2, BsShieldLockFill } from 'react-icons/bs';
+import { usePathname } from 'next/navigation'; // <-- 1. Import usePathname
+
 import './Footer.css';
 import { FaGithubSquare, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import Link from 'next/link';
 
 export default function Footer() {
-  
-  // 1. Same scroll function as your Header
+  const pathname = usePathname(); // <-- 2. Get current URL path
+
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -63,16 +63,25 @@ export default function Footer() {
             </p>
           </motion.div>
 
-          {/* Quick Links - UPDATED TO USE scrollToSection */}
+          {/* Quick Links */}
           <motion.div className="footer-col" variants={itemVariants}>
             <span className="footer-heading">EXPLORE</span>
             <ul className="footer-links">
-              <li><button onClick={() => scrollToSection('home')}>Home</button></li>
-              <li><button onClick={() => scrollToSection('about')}>About Me</button></li>
+              {/* Active check for Home */}
+              <li>
+                <Link href="/" className={pathname === '/' ? 'active' : ''}>
+                  Home
+                </Link>
+              </li>
+              {/* Active check for About */}
+              <li>
+                <Link href="/about" className={pathname === '/about' ? 'active' : ''}>
+                  About
+                </Link>
+              </li>
               <li><button onClick={() => scrollToSection('projects')}>project</button></li>
               <li><button onClick={() => scrollToSection('services')}>Services</button></li>
               <li><button onClick={() => scrollToSection('contact')}>Contact</button></li>
-
             </ul>
           </motion.div>
 
@@ -80,8 +89,8 @@ export default function Footer() {
           <motion.div className="footer-col" variants={itemVariants}>
             <span className="footer-heading">SOCIALS</span>
             <ul className="footer-links">
-              <li><a href="https://github.com/dharsansand" target="_blank" rel="noreferrer"><FaGithubSquare  /> GitHub</a></li>
-              <li><a href="https://www.linkedin.com/in/dharsan-s-b7741a252?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer"><FaLinkedin  /> LinkedIn</a></li>
+              <li><a href="https://github.com/dharsansand" target="_blank" rel="noreferrer"><FaGithubSquare /> GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/dharsan-s-b7741a252?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer"><FaLinkedin /> LinkedIn</a></li>
               <li><a href="https://www.instagram.com/dharsan._.27?igsi=MWlkdzJqYTMwMjM0cg==" target="_blank" rel="noreferrer"><FaInstagram /> Instagram</a></li>
             </ul>
           </motion.div>
