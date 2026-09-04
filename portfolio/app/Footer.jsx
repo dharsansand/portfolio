@@ -79,8 +79,21 @@ export default function Footer() {
                   About
                 </Link>
               </li>
-              <li><button onClick={() => scrollToSection('projects')}>project</button></li>
-              <li><button onClick={() => scrollToSection('services')}>Services</button></li>
+              <li>
+                <Link href="/skills" className={pathname === '/skills' ? 'active' : ''}>
+                  Skills
+                </Link>
+              </li>
+              <li>
+                <Link href="/projects" className={pathname === '/projects' ? 'active' : ''}>
+                  Projects
+                </Link>
+              </li>
+            <li>
+                <Link href="/services" className={pathname === '/services' ? 'active' : ''}>
+                  Services
+                </Link>
+              </li>
               
                 <li>
                 <Link href="/contact" className={pathname === '/contact' ? 'active' : ''}>

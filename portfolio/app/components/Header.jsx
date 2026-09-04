@@ -31,9 +31,18 @@ export default function Header() {
     }
     if(pathname === '/contact'){
       setActive("Contact");
+ }
+   if(pathname === '/skills'){
+      setActive("Skills");
+ }
+    if(pathname === '/projects'){
+      setActive("Projects");
+ }
+ if(pathname === '/services'){
+      setActive("Services");
+ }
+ 
 
-
-    }
     
     else if (pathname === '/') {
       setActive("Home");
@@ -52,6 +61,20 @@ export default function Header() {
       router.push('/contact');
       return;
     }
+     if (itemName === "Skills") {
+      router.push('/skills');
+      return;
+    }
+    if (itemName === "Projects") {
+      router.push('/projects');
+      return;
+    }
+    if (itemName === "Services") {
+      router.push('/services');
+      return;
+    }
+
+
 
     // 2. If on the Home page, scroll smoothly
     if (pathname === '/') {
