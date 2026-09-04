@@ -4,6 +4,8 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { FiDownload, FiArrowUpRight } from 'react-icons/fi';
 import { FaGithub, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import './home.css';
+import Link from "next/link";
+import { FiEye } from "react-icons/fi";
 
 const letterVariant = {
   hidden: { opacity: 0, y: 50 },
@@ -128,17 +130,11 @@ export default function Banner() {
             <button className="hire-btn" onClick={() => scrollToSection("Contact")}>
               HIRE ME <FiArrowUpRight />
             </button>
-         <a 
-  href="https://drive.google.com/uc?export=download&id=1s08EW2kHdc3txzOzRCHNuUg-xNfLmD0A" 
-  target="_blank" 
-  rel="noopener noreferrer"
-  download="Dharsan_Resume.pdf" 
-  style={{ textDecoration: 'none' }}
->
+       <Link href="/resume" style={{ textDecoration: "none" }}>
   <button className="resume-btn">
-    <FiDownload /> RESUME
+    <FiEye /> RESUME
   </button>
-</a>
+</Link>
           </div>
         </motion.div>
       </main>

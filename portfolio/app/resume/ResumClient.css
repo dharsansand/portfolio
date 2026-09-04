@@ -1,0 +1,284 @@
+:root {
+  --accent: #935073;
+  --accent-light: #b86b93;
+  --bg-dark: #07030d;
+  --card-bg: rgba(18, 14, 26, 0.78);
+  --card-border: rgba(246, 219, 192, 0.1);
+  --card-border-hover: rgba(184, 107, 147, 0.5);
+  --text-dim: rgba(248, 244, 233, 0.65);
+  --vd-peach: #f6dbc0;
+  --font-serif: "Playfair Display", Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.resume-page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+  color: var(--vd-peach);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+/* =========================================
+   CUSTOM CURSOR
+   ========================================= */
+.cursor-glow {
+  position: fixed;
+  top: -150px;
+  left: -150px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(147, 80, 115, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  filter: blur(45px);
+}
+
+.cursor-dot {
+  position: fixed;
+  top: -4px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--vd-peach);
+  border-radius: 50%;
+  z-index: 10000;
+  pointer-events: none;
+  box-shadow: 0 0 10px var(--vd-peach);
+}
+
+@media (max-width: 900px) {
+  .cursor-glow,
+  .cursor-dot {
+    display: none;
+  }
+}
+
+/* =========================================
+   HERO BANNER
+   ========================================= */
+.resume-hero-section {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: 
+    linear-gradient(180deg, rgba(7, 3, 13, 0.75) 0%, var(--bg-dark) 100%),
+    radial-gradient(ellipse at 50% 40%, rgba(147, 80, 115, 0.45), transparent 75%),
+    url("https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&q=80&w=2070") center/cover no-repeat;
+}
+
+.hero-content-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 2;
+  padding: 0 20px;
+}
+
+.hero-content-box h1 {
+  font-family: var(--font-serif);
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.hero-content-box h1 span {
+  background: linear-gradient(135deg, var(--vd-peach), var(--accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.custom-breadcrumbs {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  padding: 6px 18px;
+  background: rgba(18, 14, 26, 0.6);
+  border: 1px solid var(--card-border);
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+}
+
+.custom-breadcrumbs a {
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.custom-breadcrumbs a:hover {
+  color: var(--vd-peach);
+}
+
+.custom-breadcrumbs .sep {
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+.custom-breadcrumbs .current {
+  color: var(--vd-peach);
+  font-weight: 500;
+}
+
+/* =========================================
+   CONTAINER & ACTION TOOLBAR
+   ========================================= */
+.resume-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.resume-action-bar {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 24px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+}
+
+.resume-meta h2 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin: 0 0 4px;
+}
+
+.resume-meta p {
+  color: var(--accent-light);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+
+.contact-quick-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.contact-quick-links span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.resume-buttons-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.download-btn {
+  background: linear-gradient(135deg, var(--accent), #753b59);
+  border: 1px solid rgba(246, 219, 192, 0.25);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(147, 80, 115, 0.35);
+}
+
+.download-btn:hover {
+  background: linear-gradient(135deg, var(--accent-light), var(--accent));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(147, 80, 115, 0.45);
+}
+
+.preview-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
+  color: var(--vd-peach);
+}
+
+.preview-btn:hover {
+  background: rgba(147, 80, 115, 0.2);
+  border-color: var(--accent-light);
+  color: #ffffff;
+}
+
+/* =========================================
+   EMBEDDED PDF VIEWER
+   ========================================= */
+.pdf-viewer-frame-wrap {
+  width: 100%;
+  height: 900px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  background: rgba(14, 10, 20, 0.95);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.pdf-embed-element {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.pdf-fallback-box {
+  padding: 60px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: var(--text-dim);
+}
+
+/* =========================================
+   RESPONSIVENESS
+   ========================================= */
+@media (max-width: 768px) {
+  .hero-content-box h1 {
+    font-size: 2.2rem;
+  }
+  .resume-action-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .resume-buttons-group {
+    width: 100%;
+    flex-direction: column;
+  }
+  .action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .pdf-viewer-frame-wrap {
+    height: 600px;
+  }
+}
