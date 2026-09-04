@@ -28,7 +28,14 @@ export default function Header() {
   useEffect(() => {
     if (pathname === '/about') {
       setActive("About");
-    } else if (pathname === '/') {
+    }
+    if(pathname === '/contact'){
+      setActive("Contact");
+
+
+    }
+    
+    else if (pathname === '/') {
       setActive("Home");
     }
   }, [pathname]);
@@ -39,6 +46,10 @@ export default function Header() {
     // 1. If clicking "About", always go to the About Page
     if (itemName === "About") {
       router.push('/about');
+      return;
+    }
+   if (itemName === "Contact") {
+      router.push('/contact');
       return;
     }
 

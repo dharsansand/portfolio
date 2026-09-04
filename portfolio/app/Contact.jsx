@@ -76,8 +76,8 @@ export default function Contact() {
               {
                 icon: <MapPin />,
                 label: "Our location",
-                value: "4B/1, Nehru Street, Anupparpalayam Pudur, Tiruppur, 641652",
-                link: "https://www.google.com/maps/search/?api=1&query=4B/1,+Nehru+Street,+Anupparpalayam+Pudur,+Tiruppur,+Tamil+Nadu+641652",
+                value: "Coimbatore Tamil Nadu, India ",
+               
               },
             ].map((item, i) => (
               <a href={item.link} key={i} className="contact-item-card" target="_blank" rel="noopener noreferrer">

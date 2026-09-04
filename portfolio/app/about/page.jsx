@@ -17,7 +17,7 @@ import {
   FiArrowRight,
 } from "react-icons/fi";
 import "./AboutPage.css";
-
+import  ScrollToTop from "../components/ScrollToTop"
 const AboutPage = () => {
   // --- Glow Cursor & Dot Logic ---
   const mouseX = useMotionValue(-500);
@@ -48,7 +48,7 @@ const AboutPage = () => {
         style={{ translateX: mouseX, translateY: mouseY }}
       />
 
-      {/* 2. PROFESSIONAL HERO BANNER */}
+    
       <section className="about-hero-section">
         <div className="hero-content-box">
           <motion.h1
@@ -282,11 +282,12 @@ const AboutPage = () => {
         </section>
           <div className="final-cta-section">
           <h3>Let's build something amazing together</h3>
-          <Link href="/ " className="final-hire-btn">
+          <Link href="/contact" className="final-hire-btn">
             Work With Me <FiArrowRight />
           </Link>
         </div>
       </div>
+        <ScrollToTop /> 
     </main>
   );
 };
