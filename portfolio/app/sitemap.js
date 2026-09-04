@@ -21,7 +21,13 @@ export default function sitemap() {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/project`,
+      url: `${baseUrl}/projects`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/services`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
@@ -32,8 +38,9 @@ export default function sitemap() {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    
     {
-      url: `${baseUrl}/contract`, // Note: If this is a typo and should be 'contact', change it here
+      url: `${baseUrl}/contact`, 
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.5,
