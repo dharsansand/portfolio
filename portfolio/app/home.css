@@ -302,13 +302,19 @@ a, button {
   }
 }
 
-/* Extra small phones (iPhone SE, etc.) */
+@media (max-width:500px) {
+  .scroll-box {
+    left: 150px;
+  }
+  
+}
+
 @media (max-width: 380px) {
   .name-heading {
     font-size: 2.2rem;
   }
   .scroll-box {
-    left: 195px;
+    left: 80px;
   }
   
   .bg-watermark {
