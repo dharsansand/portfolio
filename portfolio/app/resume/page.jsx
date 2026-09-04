@@ -52,8 +52,9 @@ export default function ResumePage() {
       telephone: "+919384428585",
       url: "https://dharsanportfolio.vercel.app",
       sameAs: [
-        "https://linkedin.com",
-        "https://github.com",
+          "https://www.linkedin.com/in/dharsan-s-b7741a252",
+        "https://github.com/dharsansand",
+        "https://instagram.com/dharsan._.27",
       ],
       alumniOf: {
         "@type": "CollegeOrUniversity",
