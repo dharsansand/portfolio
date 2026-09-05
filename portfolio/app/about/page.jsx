@@ -44,7 +44,7 @@ export default function Page() {
       url: "https://dharsanportfolio.vercel.app/about",
       description: "Dharsan S - MERN Stack Developer based in Coimbatore.",
       sameAs: [
-        "https://www.linkedin.com/in/dharsan-s-b7741a252",
+        "https://www.linkedin.com/in/dharsan-full-stack-developer/",
         "https://github.com/dharsansand",
         "https://instagram.com/dharsan._.27",
       ],

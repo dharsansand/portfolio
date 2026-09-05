@@ -108,7 +108,7 @@ export default function Footer() {
             <span className="footer-heading">SOCIALS</span>
             <ul className="footer-links">
               <li><a href="https://github.com/dharsansand" target="_blank" rel="noreferrer"><FaGithubSquare /> GitHub</a></li>
-              <li><a href="https://www.linkedin.com/in/dharsan-s-b7741a252?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer"><FaLinkedin /> LinkedIn</a></li>
+              <li><a href="https://www.linkedin.com/in/dharsan-full-stack-developer/" target="_blank" rel="noreferrer"><FaLinkedin /> LinkedIn</a></li>
               <li><a href="https://www.instagram.com/dharsan._.27?igsi=MWlkdzJqYTMwMjM0cg==" target="_blank" rel="noreferrer"><FaInstagram /> Instagram</a></li>
             </ul>
           </motion.div>

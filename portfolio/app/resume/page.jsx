@@ -52,7 +52,7 @@ export default function ResumePage() {
       telephone: "+919384428585",
       url: "https://dharsanportfolio.vercel.app",
       sameAs: [
-          "https://www.linkedin.com/in/dharsan-s-b7741a252",
+          "https://www.linkedin.com/in/dharsan-full-stack-developer/",
         "https://github.com/dharsansand",
         "https://instagram.com/dharsan._.27",
       ],

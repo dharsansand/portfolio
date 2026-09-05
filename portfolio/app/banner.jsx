@@ -108,7 +108,7 @@ export default function Banner() {
   </a>
   
   <a 
-    href="https://www.linkedin.com/in/dharsan-s-b7741a252/" 
+    href="https://www.linkedin.com/in/dharsan-full-stack-developer/" 
     className="s-icon" 
     target="_blank" 
     rel="noopener noreferrer"
