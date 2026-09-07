@@ -26,6 +26,14 @@ export const metadata = {
       "Enterprise software architecture, full-stack web applications, process automation, and database optimization services by Dharsan S.",
     url: "https://dharsanportfolio.vercel.app/services",
     type: "website",
+    images: [
+      {
+        url: "https://i.pinimg.com/736x/e9/f9/9b/e9f99b387ccdc8fe05554f9cc5508d8d.jpg",
+        width: 800,
+        height: 600,
+        alt: "Dharsan S - Engineering Services",
+      },
+    ],
   },
 };
 
@@ -35,12 +43,37 @@ export default function Page() {
     "@type": "ProfessionalService",
     name: "Dharsan S - Engineering & Full-Stack Development Services",
     url: "https://dharsanportfolio.vercel.app/services",
-    description:
-      "Full-stack development, custom ERP/CRM systems, database optimization, payment gateway integration, and business automation solutions.",
+    image: "https://i.pinimg.com/736x/e9/f9/9b/e9f99b387ccdc8fe05554f9cc5508d8d.jpg",
+    priceRange: "$$",
+    telephone: "+919384428585",
+    description: "Dharsan S - MERN Stack Developer based in Coimbatore.",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Coimbatore",
+      addressRegion: "Tamil Nadu",
+      addressCountry: "IN",
+    },
+    areaServed: [
+      {
+        "@type": "Country",
+        name: "India",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Worldwide",
+      },
+    ],
     provider: {
       "@type": "Person",
+      "@id": "https://dharsanportfolio.vercel.app/#person",
       name: "Dharsan S",
       jobTitle: "MERN Stack Developer & System Architect",
+      url: "https://dharsanportfolio.vercel.app",
+      sameAs: [
+        "https://www.linkedin.com/in/dharsan-full-stack-developer/",
+        "https://github.com/dharsansand",
+        "https://instagram.com/dharsan._.27",
+      ],
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
