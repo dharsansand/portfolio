@@ -14,7 +14,7 @@ import {
 import "./ResumClient.css";
 
 // Google Drive File ID
-const FILE_ID = "1s08EW2kHdc3txzOzRCHNuUg-xNfLmD0A";
+const FILE_ID = "1I2DAei_jTleWjBr91NWmfz8UhAE7T8ds";
 
 // Embedded viewer URL (renders inline preview on all devices)
 const previewEmbedUrl = `https://drive.google.com/file/d/${FILE_ID}/preview`;
@@ -117,8 +117,6 @@ const ResumeClient = () => {
               )}
               <span>{isDownloading ? "Downloading..." : "Download PDF"}</span>
             </button>
-
-          
           </div>
         </div>
 
