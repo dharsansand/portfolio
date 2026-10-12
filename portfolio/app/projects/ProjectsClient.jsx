@@ -2,9 +2,21 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useSpring,
+} from "framer-motion";
 import { FiChevronRight, FiArrowUpRight } from "react-icons/fi";
-import { MdLeaderboard, MdOutlineQueryStats, MdImportExport, MdOutlinePayment, MdOutlineDataUsage, MdSecurity } from "react-icons/md";
+import {
+  MdLeaderboard,
+  MdOutlineQueryStats,
+  MdImportExport,
+  MdOutlinePayment,
+  MdOutlineDataUsage,
+  MdSecurity,
+} from "react-icons/md";
 import { FaUserLock } from "react-icons/fa";
 import { GrUserAdmin } from "react-icons/gr";
 
@@ -13,34 +25,106 @@ import "./ProjectsClient.css";
 const projects = [
   {
     id: "01",
+    category: "COMMERCE & CMS",
+    title: "Phonix Mobile Store",
+    subtitle: "NEXT.JS • NEST.JS • MONGODB",
+    description:
+      "A sophisticated, full-stack mobile commerce ecosystem. Leveraging Next.js for lightning-fast SSR and NestJS for a scalable, modular backend architecture.",
+    metrics: [
+      {
+        label: "Frontend",
+        value: "Next.js SSR",
+        icon: <MdOutlineDataUsage size={16} />,
+      },
+      {
+        label: "Backend",
+        value: "NestJS API",
+        icon: <MdOutlineQueryStats size={16} />,
+      },
+      {
+        label: "State Mgmt",
+        value: "Redux Toolkit",
+        icon: <MdLeaderboard size={16} />,
+      },
+      {
+        label: "Database",
+        value: "MongoDB",
+        icon: <MdImportExport size={16} />,
+      },
+    ],
+    tech: ["Next.js", "NestJS", "MongoDB", "Redux Toolkit", "Tailwind CSS"],
+    color: "#935073",
+    link: "https://www.phonixmobile.store",
+  },
+  {
+    id: "02",
     category: "ENTERPRISE",
     title: "Integrated Business Suite",
     subtitle: "ERP • CRM • HRM",
     description:
       "An end-to-end enterprise solution automating lead management pipelines, real-time inventory ledgers, and automated payroll with dynamic headless PDF generation.",
     metrics: [
-      { label: "Lead Efficiency", value: "+70%", icon: <MdLeaderboard size={16} /> },
-      { label: "Query Speed", value: "60% Faster", icon: <MdOutlineQueryStats size={16} /> },
-      { label: "Bulk Migration", value: "10K+ in 5s", icon: <MdImportExport size={16} /> },
-      { label: "Security", value: "RBAC & JWT", icon: <FaUserLock size={16} /> },
+      {
+        label: "Lead Efficiency",
+        value: "+70%",
+        icon: <MdLeaderboard size={16} />,
+      },
+      {
+        label: "Query Speed",
+        value: "60% Faster",
+        icon: <MdOutlineQueryStats size={16} />,
+      },
+      {
+        label: "Bulk Migration",
+        value: "10K+ in 5s",
+        icon: <MdImportExport size={16} />,
+      },
+      {
+        label: "Security",
+        value: "RBAC & JWT",
+        icon: <FaUserLock size={16} />,
+      },
     ],
     tech: ["React", "Node.js", "Express.js", "MongoDB", "Puppeteer", "Redis"],
     color: "#935073",
   },
   {
-    id: "02",
+    id: "03",
     category: "COMMERCE & CMS",
     title: "Dynamic E-commerce Platform",
     subtitle: "CMS • PAYMENTS • CART",
     description:
       "A high-performance commerce platform featuring a zero-code dynamic admin CMS panel, persistent cart state, and secure Razorpay payment gateway integration.",
     metrics: [
-      { label: "Admin Panel", value: "Zero-Code", icon: <GrUserAdmin size={16} /> },
-      { label: "Payment Gateway", value: "Razorpay", icon: <MdOutlinePayment size={16} /> },
-      { label: "State Engine", value: "RTK Query", icon: <MdOutlineDataUsage size={16} /> },
-      { label: "Auth Flow", value: "JWT Secure", icon: <MdSecurity size={16} /> },
+      {
+        label: "Admin Panel",
+        value: "Zero-Code",
+        icon: <GrUserAdmin size={16} />,
+      },
+      {
+        label: "Payment Gateway",
+        value: "Razorpay",
+        icon: <MdOutlinePayment size={16} />,
+      },
+      {
+        label: "State Engine",
+        value: "RTK Query",
+        icon: <MdOutlineDataUsage size={16} />,
+      },
+      {
+        label: "Auth Flow",
+        value: "JWT Secure",
+        icon: <MdSecurity size={16} />,
+      },
     ],
-    tech: ["React", "Node.js", "Express.js", "Redux Toolkit", "Razorpay", "Tailwind CSS"],
+    tech: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "Redux Toolkit",
+      "Razorpay",
+      "Tailwind CSS",
+    ],
     color: "#b86b93",
   },
 ];
@@ -176,6 +260,16 @@ const ProjectsClient = () => {
                       </span>
                     ))}
                   </div>
+                  {project.link && project.link !== "#" && (
+                    <Link
+                      href={project.link}
+                      target="_blank"
+                      className="view-detail-btn"
+                    >
+                      <span>Visit Live Site</span>
+                      <FiArrowUpRight className="btn-arrow" />
+                    </Link>
+                  )}
                   {/* <button className="view-detail-btn" aria-label="Explore Project">
                     <span>Explore Architecture</span>
                     <FiArrowUpRight className="btn-arrow" />
